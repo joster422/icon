@@ -1,3 +1,3 @@
-import { types } from './types.const';
+import { iconTypes } from './icon-types.const';
 
-export type icon = (typeof types)[number];
+export type icon = (typeof iconTypes)[number];
