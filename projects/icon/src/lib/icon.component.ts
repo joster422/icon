@@ -39,7 +39,7 @@ export class IconComponent {
     // https://developer.mozilla.org/en-US/docs/Web/CSS/angle
     this._fillRotate = value;
   }
-  _fillRotate = '0';
+  _fillRotate = 0;
 
   @Input()
   get fillOpacity() {
