@@ -1,6 +1,25 @@
 {
-  "name": "icon",
+  "name": "@joster/icon",
   "version": "0.0.1",
+  "description": "scalable vector graphics",
+  "keywords": [
+    "angular",
+    "typescript",
+    "scss",
+    "library",
+    "svg",
+    "icon"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joster422/icon"
+  },
+  "homepage": "https://joster422.github.io/icon",
+  "author": {
+    "name": "Jacob Osterhout",
+    "url": "https://joster422.github.io"
+  },
+  "license": "MIT",
   "peerDependencies": {
     "@angular/common": "^9.1.11",
     "@angular/core": "^9.1.11"
