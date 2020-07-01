@@ -79,8 +79,8 @@
 <nav>
   <!-- soon! -->
 </nav>
-<ng-container *ngFor="let type of types">
-  <h3>{{type}}</h3>
+<ng-container *ngFor="let item of typeItems">
+  <h3>{{item.type}}</h3>
   <div class="row">
     <div class="icon-container">
       <div class="icon-bg">
@@ -92,15 +92,26 @@
         ></div>
       </div>
       <icon
-        [type]="type"
-        [fill]="['00FF00', 'FF0000', '0000FF']"
+        [type]="item.type"
+        [fill]="fillColors(item.fill)"
       ></icon>
     </div>
   </div>
   <form>
     <fieldset>
-      <legend>form</legend>
-      coming soon!
+      <legend>fill</legend>
+      <fc-button (clicked)="item.fill.push({ color: '000000'})">
+        Add
+      </fc-button>
+      <div *ngFor="let fill of item.fill; let idx = index">
+        <fc-color
+          [(ngModel)]="fill.color"
+          name="{{item.type}}-{{idx}}"
+        ></fc-color>
+        <fc-button (clicked)="item.fill.splice(idx, 1)">
+          Remove
+        </fc-button>
+      </div>
     </fieldset>
   </form>
   <br />

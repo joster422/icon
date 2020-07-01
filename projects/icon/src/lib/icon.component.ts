@@ -79,6 +79,8 @@ export class IconComponent {
   }
   _size = '100%';
 
+  id = `${Math.random().toString(36).substr(2, 9)}`;
+
   constructor() { }
 
   fillGradientOffset(index: number) {
