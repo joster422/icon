@@ -105,8 +105,12 @@
       <fc-button (clicked)="item.fill.push({ color: '000000'})">
         Add
       </fc-button>
-      <div *ngFor="let fill of item.fill; let idx = index">
+      <div
+        *ngFor="let fill of item.fill; let idx = index"
+        class="fill-container"
+      >
         <fc-color
+          label="color {{idx + 1}}"
           [(ngModel)]="fill.color"
           name="{{item.type}}-{{idx}}"
         ></fc-color>
