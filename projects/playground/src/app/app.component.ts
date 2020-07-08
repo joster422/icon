@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 
 import { iconTypes } from '@joster/icon';
-import { KeyValue } from '@angular/common';
 // import { iconTypes } from 'dist/icon';
 
 @Component({
@@ -35,7 +34,7 @@ export class AppComponent {
         this.bgGrid.push({ x, y });
   }
 
-  fillColors(items: { color: string }[]): string[] {
+  fillColors(items: { color: string }[]) {
     return items.map(item => item.color);
   }
 }
