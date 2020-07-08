@@ -5,6 +5,11 @@
   "projects": {
     "icon": {
       "projectType": "library",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
       "root": "projects/icon",
       "sourceRoot": "projects/icon/src",
       "prefix": "icon",
@@ -163,6 +168,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "icon"
 }

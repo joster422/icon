@@ -2,7 +2,7 @@
   "name": "icon",
   "version": "0.0.0",
   "scripts": {
-    "ghp-build": "ng build --project=playground --prod --base-href=https://joster422.github.io/icon/",
+    "ghp-build": "ng build --project=playground --prod --base-href=https://joster-dev.github.io/icon/",
     "ghp-deploy": "git add . && git commit --message=\"chore - gh-pages deploy\" && git push",
     "ghp-remove-old": "git push origin --delete gh-pages",
     "ghp-push": "git subtree push --prefix dist/playground origin gh-pages",

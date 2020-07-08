@@ -1,6 +1,6 @@
 {
   "name": "@joster/icon",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "scalable vector graphics",
   "keywords": [
     "angular",
@@ -12,12 +12,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/joster422/icon"
+    "url": "https://github.com/joster-dev/icon"
   },
-  "homepage": "https://joster422.github.io/icon",
+  "homepage": "https://joster-dev.github.io/icon",
   "author": {
     "name": "Jacob Osterhout",
-    "url": "https://joster422.github.io"
+    "url": "https://joster-dev.github.io"
   },
   "license": "MIT",
   "peerDependencies": {

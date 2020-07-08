@@ -2,12 +2,26 @@
 <a href="https://www.npmjs.com/package/@joster/icon">
   v0.0.4
 </a>
-<h2>Features</h2>
+<h2>
+  <code>{{iconText}}</code>
+</h2>
+<h3>Features</h3>
 <ol>
-  <li>scalable vector graphics 😎</li>
-  <li>invalid Input value bindings have no effect</li>
+  <li>
+    scalable vector graphics
+    <ol>
+      may be scaled up or down to any resolution with no aliasing
+    </ol>
+  </li>
+  <li>
+    when an invalid value is provided for an input
+    <ol>
+      <li>a descriptive error will be thrown</li>
+      <li>the last valid value will remain</li>
+    </ol>
+  </li>
 </ol>
-<h2>Inputs</h2>
+<h3>Inputs</h3>
 <ol>
   <li>
     <code>fill</code>
@@ -24,10 +38,10 @@
     <code>fillRotate</code>
     <ul>
       <li>
-        type: <code>number</code>
+        type: <code>boolean</code>
       </li>
       <li>
-        default: <code>0</code>
+        default: <code>false</code>
       </li>
     </ul>
   </li>
@@ -75,12 +89,22 @@
       </li>
     </ul>
   </li>
+  <li>
+    <code>type</code>
+    <ul>
+      <li>
+        must be one of the following
+      </li>
+    </ul>
+  </li>
 </ol>
 <nav>
   <!-- soon! -->
 </nav>
 <ng-container *ngFor="let item of typeItems">
-  <h3>{{item.type}}</h3>
+  <h3>
+    <code>type={{item.type}}</code>
+  </h3>
   <div class="row">
     <div class="icon-container">
       <div class="icon-bg">
@@ -94,13 +118,14 @@
       <icon
         [type]="item.type"
         [fill]="fillColors(item.fill)"
+        [fillRotate]="item.fillRotate"
       ></icon>
     </div>
   </div>
   <form>
     <fieldset>
       <legend>
-        <code>fill</code>
+        <code>[fill]={{fillColors(item.fill) | json}} <small>type={{item.type}}</small></code>
       </legend>
       <fc-button (clicked)="item.fill.push({ color: '000000'})">
         Add
@@ -110,7 +135,6 @@
         class="fill-container"
       >
         <fc-color
-          label="color {{idx + 1}}"
           [(ngModel)]="fill.color"
           name="{{item.type}}-{{idx}}"
         ></fc-color>
@@ -119,6 +143,60 @@
         </fc-button>
       </div>
     </fieldset>
+    <fieldset>
+      <legend>
+        <code>[fillRotate]="{{item.fillRotate | json}}" <small>type="{{item.type}}"</small></code>
+      </legend>
+      <fc-choice
+        [(ngModel)]="item.fillRotate"
+        name="fillRotate"
+        [items]="fillRotateItems"
+      ></fc-choice>
+    </fieldset>
   </form>
   <br />
 </ng-container>
+<h2>
+  <code>{{iconStackText}}</code>
+</h2>
+<h3>Features</h3>
+<ol>
+  <li>
+    stack <code>{{iconText}}</code> content
+    <ol>
+      nested <code>{{iconText}}</code> does not need to specify size input
+    </ol>
+  </li>
+</ol>
+<h3>Inputs</h3>
+<li>
+  <code>size</code>
+  <ul>
+    <li>
+      type: <code>string</code>
+    </li>
+    <li>
+      default: <code>'100%'</code>
+    </li>
+  </ul>
+</li>
+<div class="row">
+  <div class="icon-container">
+    <div class="icon-bg">
+      <div
+        *ngFor="let cell of bgGrid"
+        [class.accent]="(cell.x + cell.y) % 2 === 0"
+        [style.grid-column]="cell.x"
+        [style.grid-row]="cell.y"
+      ></div>
+    </div>
+    <icon-stack size="10em">
+      <icon
+        type="times"
+        [fill]="['00FF00', 'FF0000', '0000FF']"
+      ></icon>
+      <icon type="ring"></icon>
+    </icon-stack>
+  </div>
+</div>
+<br />

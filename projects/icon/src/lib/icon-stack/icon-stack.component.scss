@@ -1,0 +1,7 @@
+:host div {
+  display: flex;
+  position: relative;
+  ::ng-deep > icon {
+    position: absolute;
+  }
+}

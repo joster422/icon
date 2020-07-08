@@ -1,13 +1,14 @@
 import { Component, Input } from '@angular/core';
 import { icon } from './icon.type';
 import { iconTypes } from './icon-types.const';
+import { SizeDirective } from './size.directive';
 
 @Component({
   selector: 'icon[type]',
   templateUrl: './icon.component.html',
   styleUrls: ['./icon.component.scss']
 })
-export class IconComponent {
+export class IconComponent extends SizeDirective {
   @Input()
   get type() {
     return this._type;
@@ -33,13 +34,20 @@ export class IconComponent {
 
   @Input()
   get fillRotate() {
-    return this._fillRotate;
+    return this._fillRotate
+      ? 90
+      : 0;
   }
   set fillRotate(value: any) {
-    // https://developer.mozilla.org/en-US/docs/Web/CSS/angle
+    if (value === '')
+      value = true;
+    if (value === null || value === undefined)
+      value = false;
+    if (typeof value !== 'boolean')
+      throw new Error('fillRotate input must be: boolean');
     this._fillRotate = value;
   }
-  _fillRotate = 0;
+  _fillRotate = false;
 
   @Input()
   get fillOpacity() {
@@ -69,19 +77,11 @@ export class IconComponent {
   }
   _strokeWidth = 5;
 
-  @Input()
-  get size() {
-    return this._size;
-  }
-  set size(value: any) {
-    // https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/height
-    this._size = value;
-  }
-  _size = '100%';
-
   id = `${Math.random().toString(36).substr(2, 9)}`;
 
-  constructor() { }
+  constructor() {
+    super();
+  }
 
   fillGradientOffset(index: number) {
     if (this.fill.length === 1)
