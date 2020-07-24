@@ -1,6 +1,9 @@
 {
-  "name": "@joster/icon",
-  "version": "0.0.5",
+  "name": "@joster-dev/icon",
+  "version": "0.0.1",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "description": "scalable vector graphics",
   "keywords": [
     "angular",
