@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { iconTypes } from '@joster/icon';
+import { iconTypes } from '@joster-dev/icon';
 // import { iconTypes } from 'dist/icon';
 
 @Component({
