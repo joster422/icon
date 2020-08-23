@@ -1,110 +1,157 @@
 <h1>Icon Resource</h1>
 <a href="https://github.com/joster-dev/icon/packages/327210">
-  v0.0.1
+  github v0.0.2
 </a>
-<h2>
-  <code>{{iconText}}</code>
-</h2>
-<h3>Features</h3>
-<ol>
+<h2>About</h2>
+<ul>
   <li>
-    scalable vector graphics
-    <ol>
-      may be scaled up or down to any resolution with no aliasing
-    </ol>
+    icons
+    <ul>
+      <li>
+        customizable scalable vector graphics
+      </li>
+      <li>
+        may be scaled up or down to any resolution with no aliasing
+      </li>
+    </ul>
+  </li>
+  <li>
+    icon stacking
+    <ul>
+      <li>
+        provide a context in which icons appear on top of one another
+      </li>
+      <li>
+        icons inside this context can share the same scaling
+      </li>
+    </ul>
   </li>
   <li>
     when an invalid value is provided for an input
-    <ol>
-      <li>a descriptive error will be thrown</li>
-      <li>the last valid value will remain</li>
-    </ol>
+    <ul>
+      <li>
+        a descriptive error will be thrown
+      </li>
+      <li>
+        the last valid value will remain
+      </li>
+    </ul>
   </li>
-</ol>
-<h3>Inputs</h3>
+</ul>
+<h2>Getting Started</h2>
 <ol>
   <li>
-    <code>fill</code>
+    in your angular project run
     <ul>
       <li>
-        type: <code>hexString | hexString[]</code>
-      </li>
-      <li>
-        default: <code>['FFFFFF']</code>
+        <code>npm install @joster-dev/icon --save</code>
       </li>
     </ul>
   </li>
   <li>
-    <code>fillRotate</code>
+    in the module that utilizes these controls add
     <ul>
       <li>
-        type: <code>boolean</code>
-      </li>
-      <li>
-        default: <code>false</code>
+        <code>{{"import { IconModule } from '@joster-dev/icon'"}}</code>
       </li>
     </ul>
   </li>
   <li>
-    <code>fillOpacity</code>
+    in the module update your imports
     <ul>
       <li>
-        type: <code>number</code>
-      </li>
-      <li>
-        default: <code>1</code>
-      </li>
-    </ul>
-  </li>
-  <li>
-    <code>stroke</code>
-    <ul>
-      <li>
-        type: <code>hexString</code>
-      </li>
-      <li>
-        default: <code>'000000'</code>
-      </li>
-    </ul>
-  </li>
-  <li>
-    <code>strokeWidth</code>
-    <ul>
-      <li>
-        type: <code>number</code>
-      </li>
-      <li>
-        default: <code>5</code>
-      </li>
-    </ul>
-  </li>
-  <li>
-    <code>size</code>
-    <ul>
-      <li>
-        type: <code>string</code>
-      </li>
-      <li>
-        default: <code>'100%'</code>
-      </li>
-    </ul>
-  </li>
-  <li>
-    <code>type</code>
-    <ul>
-      <li>
-        must be one of the following
+        <code>imports: [..., IconModule]</code>
       </li>
     </ul>
   </li>
 </ol>
-<nav>
-  <!-- soon! -->
-</nav>
+<h2>Icon Inputs</h2>
+<ul>
+  <li>
+    <b>type</b>
+    <ul>
+      <li>
+        expects <code>{{types}}</code>
+      </li>
+      <li>
+        must be specified
+      </li>
+    </ul>
+  </li>
+  <li>
+    <b>size</b>
+    <ul>
+      <li>
+        expects <code>string</code>
+      </li>
+      <li>
+        default <code>'100%'</code>
+      </li>
+      <li>
+        for scaling
+      </li>
+    </ul>
+  </li>
+  <li>
+    <b>fill</b>
+    <ul>
+      <li>
+        <code>string | string[]</code>
+      </li>
+      <li>
+        default <code>'FFFFFF'</code>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <b>fillRotate</b>
+    <ul>
+      <li>
+        <code>boolean</code>
+      </li>
+      <li>
+        default <code>false</code>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <b>fillOpacity</b>
+    <ul>
+      <li>
+        <code>number</code>
+      </li>
+      <li>
+        default <code>1</code>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <b>stroke</b>
+    <ul>
+      <li>
+        <code>string</code>
+      </li>
+      <li>
+        default <code>'000000'</code>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <b>strokeWidth</b>
+    <ul>
+      <li>
+        <code>number</code>
+      </li>
+      <li>
+        default <code>5</code>
+      </li>
+    </ul>
+  </li>
+</ul>
+<h2>Icon Examples</h2>
 <ng-container *ngFor="let item of typeItems">
-  <h3>
-    <code>type={{item.type}}</code>
-  </h3>
+  <h3>⭐ {{item.type}}</h3>
+  <br />
   <div class="row">
     <div class="icon-container">
       <div class="icon-bg">
@@ -124,8 +171,22 @@
   </div>
   <form>
     <fieldset>
+      <legend>🔍 html code</legend>
+      <code class="block">
+        <span *ngFor="let item of htmlCode(item);  let idx = index">
+          <span *ngIf="idx > 0 && idx < htmlCode(item).length - 1">
+            &nbsp;&nbsp;
+          </span>
+          <span>
+            {{item}}
+          </span>
+          <br />
+        </span>
+      </code>
+    </fieldset>
+    <fieldset>
       <legend>
-        <code>[fill]={{fillColors(item.fill) | json}} <small>type={{item.type}}</small></code>
+        ⚙️ fill
       </legend>
       <fc-button (clicked)="item.fill.push({ color: '000000'})">
         Add
@@ -137,6 +198,7 @@
         <fc-color
           [(ngModel)]="fill.color"
           name="{{item.type}}-{{idx}}"
+          class="flex-1"
         ></fc-color>
         <fc-button (clicked)="item.fill.splice(idx, 1)">
           Remove
@@ -145,7 +207,7 @@
     </fieldset>
     <fieldset>
       <legend>
-        <code>[fillRotate]="{{item.fillRotate | json}}" <small>type="{{item.type}}"</small></code>
+        ⚙️ fill rotate
       </legend>
       <fc-choice
         [(ngModel)]="item.fillRotate"
@@ -156,30 +218,24 @@
   </form>
   <br />
 </ng-container>
-<h2>
-  <code>{{iconStackText}}</code>
-</h2>
-<h3>Features</h3>
-<ol>
-  <li>
-    stack <code>{{iconText}}</code> content
-    <ol>
-      nested <code>{{iconText}}</code> does not need to specify size input
-    </ol>
-  </li>
-</ol>
-<h3>Inputs</h3>
+<h2>Icon Stack Inputs</h2>
 <li>
   <code>size</code>
   <ul>
     <li>
-      type: <code>string</code>
+      expects <code>string</code>
     </li>
     <li>
-      default: <code>'100%'</code>
+      default <code>'100%'</code>
+    </li>
+    <li>
+      for scaling all nested icons
     </li>
   </ul>
 </li>
+<h2>Icon Stack Example</h2>
+<h3>⭐ icon stack</h3>
+<br />
 <div class="row">
   <div class="icon-container">
     <div class="icon-bg">
@@ -199,4 +255,20 @@
     </icon-stack>
   </div>
 </div>
+<form>
+  <fieldset>
+    <legend>🔍 html code</legend>
+    <code class="block">
+      <span *ngFor="let item of iconStackHtmlCode; let idx = index">
+        <span *ngIf="idx > 0 && idx < iconStackHtmlCode.length - 1">
+          &nbsp;&nbsp;
+        </span>
+        <span>
+          {{item}}
+        </span>
+        <br />
+      </span>
+    </code>
+  </fieldset>
+</form>
 <br />

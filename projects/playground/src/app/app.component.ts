@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
-import { iconTypes } from '@joster-dev/icon';
-// import { iconTypes } from 'dist/icon';
+import { iconTypes, icon } from '@joster-dev/icon';
+// import { iconTypes, icon } from 'dist/icon';
 
 @Component({
   selector: 'pg-root',
@@ -9,11 +9,13 @@ import { iconTypes } from '@joster-dev/icon';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  readonly iconStartText = '<icon';
+  readonly iconEndText = '></icon>';
   readonly iconText = '<icon type></icon>';
-  readonly iconStackText = '<icon-stack>...</icon-stack>';
+  readonly iconStackText = '...</icon-stack>';
 
   bgGrid: { x: number, y: number }[] = [];
-  typeItems = iconTypes.map(iconType => ({
+  typeItems: IconTypeItem[] = iconTypes.map(iconType => ({
     type: iconType,
     fill: [
       { color: '00FF00' },
@@ -34,7 +36,38 @@ export class AppComponent {
         this.bgGrid.push({ x, y });
   }
 
+  get types() {
+    return iconTypes
+      .map(type => `'${type}'`)
+      .join(' | ');
+  }
+
+  get iconStackHtmlCode() {
+    return [
+      '<icon-stack size="10em">',
+      `<icon type="times" [fill]="['00FF00', 'FF0000', '0000FF']"></icon>`,
+      `<icon type="ring"></icon>`,
+      '</icon-stack>'
+    ];
+  }
+
   fillColors(items: { color: string }[]) {
     return items.map(item => item.color);
   }
+
+  htmlCode(item: IconTypeItem) {
+    return [
+      `<icon type="${item.type}" `,
+      `size="10em"`,
+      `[fill]="[${item.fill.map(fill => `'${fill.color}'`).join()}]" `,
+      `[fillRotate]="${item.fillRotate}"`,
+      `></icon>`
+    ];
+  }
+}
+
+interface IconTypeItem {
+  type: icon;
+  fill: { color: string }[];
+  fillRotate: boolean;
 }

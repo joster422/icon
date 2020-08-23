@@ -13,5 +13,45 @@ body {
 }
 
 code {
-  background-color: lightyellow;
+  background: linear-gradient(45deg, lightcyan, moccasin);
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+ul,
+ul li,
+ol,
+ol li {
+  margin-top: 0.5em;
+}
+
+form fieldset {
+  margin-top: 0.5em;
+  border-color: transparent;
+}
+
+h2,
+h3 {
+  position: sticky;
+  top: 0;
+  background-color: white;
+
+  z-index: 2;
+}
+
+h2 {
+  margin: 0;
+  padding: 0.25em 0;
+}
+
+h3 {
+  margin: 0;
+  padding: 0.5em 0;
+  border-bottom: 1px solid black;
+}
+
+.block {
+  display: block;
 }

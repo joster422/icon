@@ -18,27 +18,30 @@
   <circle
     *ngIf="type === 'circle'"
     attr.fill="url(#fill-gradient-{{id}})"
+    attr.fill-opacity="{{fillOpacity}}"
     attr.stroke="#{{stroke}}"
     attr.stroke-width="{{strokeWidth}}"
-    cx="50"
-    cy="50"
+    attr.cx="{{centerX}}"
+    attr.cy="{{centerY}}"
     r="40"
   />
   <circle
     *ngIf="type === 'dot'"
     attr.fill="url(#fill-gradient-{{id}})"
+    attr.fill-opacity="{{fillOpacity}}"
     attr.stroke="#{{stroke}}"
     attr.stroke-width="{{strokeWidth}}"
-    cx="50"
-    cy="50"
+    attr.cx="{{centerX}}"
+    attr.cy="{{centerY}}"
     r="20"
   />
   <path
     *ngIf="type === 'ring'"
     attr.fill="url(#fill-gradient-{{id}})"
+    attr.fill-opacity="{{fillOpacity}}"
     attr.stroke="#{{stroke}}"
     attr.stroke-width="{{strokeWidth}}"
-    attr.d="{{ringPath()}}"
+    attr.d="{{ringPath}}"
   />
   <rect
     *ngIf="type === 'square'"
@@ -66,6 +69,7 @@
   <rect
     *ngIf="type === 'minus'"
     attr.fill="url(#fill-gradient-{{id}})"
+    attr.fill-opacity="{{fillOpacity}}"
     attr.stroke="#{{stroke}}"
     attr.stroke-width="{{strokeWidth}}"
     x="10"
@@ -76,6 +80,7 @@
   <polygon
     *ngIf="type === 'check'"
     attr.fill="url(#fill-gradient-{{id}})"
+    attr.fill-opacity="{{fillOpacity}}"
     attr.stroke="#{{stroke}}"
     attr.stroke-width="{{strokeWidth}}"
     points="40,80 90,30 80,20 40,60 20,40 10,50"
@@ -83,6 +88,7 @@
   <polygon
     *ngIf="type === 'times'"
     attr.fill="url(#fill-gradient-{{id}})"
+    attr.fill-opacity="{{fillOpacity}}"
     attr.stroke="#{{stroke}}"
     attr.stroke-width="{{strokeWidth}}"
     points="20,90 10,80 40,50 10,20 20,10 50,40 80,10 90,20 60,50 90,80 80,90 50,60"
@@ -90,6 +96,7 @@
   <polygon
     *ngIf="type === 'plus'"
     attr.fill="url(#fill-gradient-{{id}})"
+    attr.fill-opacity="{{fillOpacity}}"
     attr.stroke="#{{stroke}}"
     attr.stroke-width="{{strokeWidth}}"
     points="40,90 60,90 60,60 90,60 90,40 60,40 60,10 40,10 40,40 10,40 10,60 40,60"

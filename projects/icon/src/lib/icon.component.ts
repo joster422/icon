@@ -77,7 +77,18 @@ export class IconComponent extends SizeDirective {
   }
   _strokeWidth = 5;
 
+  @Input()
+  get radius() {
+    return this._radius;
+  }
+  set radius(value: any) {
+    this._radius = value;
+  }
+  _radius = 40;
+
   id = `${Math.random().toString(36).substr(2, 9)}`;
+  centerX = 50;
+  centerY = 50;
 
   constructor() {
     super();
@@ -89,16 +100,14 @@ export class IconComponent extends SizeDirective {
     return 100 - (((this.fill.length - 1 - index) / (this.fill.length - 1)) * 100);
   }
 
-  ringPath() {
-    const centerX = 50;
-    const centerY = 50;
+  get ringPath() {
     const outerRadius = 40;
     const innerRadius = outerRadius - (10 * Math.sqrt(2));
-    return `M ${centerX} ${centerY - outerRadius}` +
-      `A ${outerRadius} ${outerRadius} 0 1 0 ${centerX} ${centerY + outerRadius}` +
-      `A ${outerRadius} ${outerRadius} 0 1 0 ${centerX} ${centerY - outerRadius} Z` +
-      `M ${centerX} ${centerY - innerRadius}` +
-      `A ${innerRadius} ${innerRadius} 0 1 1 ${centerX} ${centerY + innerRadius}` +
-      `A ${innerRadius} ${innerRadius} 0 1 1 ${centerX} ${centerY - innerRadius} Z`;
+    return `M ${this.centerX} ${this.centerY - outerRadius}` +
+      `A ${outerRadius} ${outerRadius} 0 1 0 ${this.centerX} ${this.centerY + outerRadius}` +
+      `A ${outerRadius} ${outerRadius} 0 1 0 ${this.centerX} ${this.centerY - outerRadius} Z` +
+      `M ${this.centerX} ${this.centerY - innerRadius}` +
+      `A ${innerRadius} ${innerRadius} 0 1 1 ${this.centerX} ${this.centerY + innerRadius}` +
+      `A ${innerRadius} ${innerRadius} 0 1 1 ${this.centerX} ${this.centerY - innerRadius} Z`;
   }
 }
