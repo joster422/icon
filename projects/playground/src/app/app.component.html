@@ -1,7 +1,9 @@
-<h1>Icon Resource</h1>
-<a href="https://github.com/joster-dev/icon/packages/327210">
-  github v0.0.2
-</a>
+<h1>Icon Documentation</h1>
+<p>
+  <a href="https://github.com/joster-dev/icon/packages/327210">
+    github v0.0.4
+  </a>
+</p>
 <h2>About</h2>
 <ul>
   <li>
@@ -96,7 +98,7 @@
     <b>fill</b>
     <ul>
       <li>
-        <code>string | string[]</code>
+        expects <code>string | string[]</code>
       </li>
       <li>
         default <code>'FFFFFF'</code>
@@ -107,7 +109,7 @@
     <b>fillRotate</b>
     <ul>
       <li>
-        <code>boolean</code>
+        expects <code>boolean</code>
       </li>
       <li>
         default <code>false</code>
@@ -118,7 +120,7 @@
     <b>fillOpacity</b>
     <ul>
       <li>
-        <code>number</code>
+        expects <code>number</code>
       </li>
       <li>
         default <code>1</code>
@@ -129,7 +131,7 @@
     <b>stroke</b>
     <ul>
       <li>
-        <code>string</code>
+        expects <code>string</code>
       </li>
       <li>
         default <code>'000000'</code>
@@ -140,7 +142,7 @@
     <b>strokeWidth</b>
     <ul>
       <li>
-        <code>number</code>
+        expects <code>number</code>
       </li>
       <li>
         default <code>5</code>
@@ -173,12 +175,12 @@
     <fieldset>
       <legend>🔍 html code</legend>
       <code class="block">
-        <span *ngFor="let item of htmlCode(item);  let idx = index">
+        <span *ngFor="let line of htmlCode(item);  let idx = index">
           <span *ngIf="idx > 0 && idx < htmlCode(item).length - 1">
             &nbsp;&nbsp;
           </span>
           <span>
-            {{item}}
+            {{line}}
           </span>
           <br />
         </span>
@@ -219,20 +221,22 @@
   <br />
 </ng-container>
 <h2>Icon Stack Inputs</h2>
-<li>
-  <code>size</code>
-  <ul>
-    <li>
-      expects <code>string</code>
-    </li>
-    <li>
-      default <code>'100%'</code>
-    </li>
-    <li>
-      for scaling all nested icons
-    </li>
-  </ul>
-</li>
+<ul>
+  <li>
+    <code>size</code>
+    <ul>
+      <li>
+        expects <code>string</code>
+      </li>
+      <li>
+        default <code>'100%'</code>
+      </li>
+      <li>
+        for scaling all nested icons
+      </li>
+    </ul>
+  </li>
+</ul>
 <h2>Icon Stack Example</h2>
 <h3>⭐ icon stack</h3>
 <br />

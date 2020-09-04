@@ -57,9 +57,9 @@ export class AppComponent {
 
   htmlCode(item: IconTypeItem) {
     return [
-      `<icon type="${item.type}" `,
+      `<icon type="${item.type}"`,
       `size="10em"`,
-      `[fill]="[${item.fill.map(fill => `'${fill.color}'`).join()}]" `,
+      `[fill]="[${item.fill.map(fill => `${fill.color === null ? 'null' : `'${fill.color}'`}`).join()}]"`,
       `[fillRotate]="${item.fillRotate}"`,
       `></icon>`
     ];
