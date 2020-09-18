@@ -101,4 +101,117 @@
     attr.stroke-width="{{strokeWidth}}"
     points="40,90 60,90 60,60 90,60 90,40 60,40 60,10 40,10 40,40 10,40 10,60 40,60"
   />
+  <polygon
+    *ngIf="type === 'row'"
+    attr.fill="url(#fill-gradient-{{id}})"
+    attr.fill-opacity="{{fillOpacity}}"
+    attr.stroke="#{{stroke}}"
+    attr.stroke-width="{{strokeWidth}}"
+    points="72.068,74.703 96.465,50.309
+	71.573,25.418 71.725,40.5 28.275,40.5 28.427,25.418 3.535,50.309 27.932,74.703 28.074,60.5 71.927,60.5 "
+  />
+  <polygon
+    *ngIf="type === 'column'"
+    attr.fill="url(#fill-gradient-{{id}})"
+    attr.fill-opacity="{{fillOpacity}}"
+    attr.stroke="#{{stroke}}"
+    attr.stroke-width="{{strokeWidth}}"
+    points="59.5,28.274 74.583,28.426 49.691,3.535
+	25.296,27.93 39.5,28.073 39.5,71.928 25.296,72.07 49.691,96.465 74.583,71.574 59.5,71.726 "
+  />
+  <polygon
+    *ngIf="type === 'flag'"
+    attr.fill="url(#fill-gradient-{{id}})"
+    attr.fill-opacity="{{fillOpacity}}"
+    attr.stroke="#{{stroke}}"
+    attr.stroke-width="{{strokeWidth}}"
+    points="93,33.86 22.5,7.368 22.5,2.5 2.5,2.5
+	2.5,97.5 22.5,97.5 22.5,59.915 "
+  />
+  <path
+    *ngIf="type === 'gear'"
+    attr.fill="url(#fill-gradient-{{id}})"
+    attr.fill-opacity="{{fillOpacity}}"
+    attr.stroke="#{{stroke}}"
+    attr.stroke-width="{{strokeWidth}}"
+    d="M96.35,39.625C95.178,34.369,93.14,29.44,90.385,25H80l-5-5V9.618C70.554,6.859,65.617,4.82,60.353,3.65L56.61,7.761L50,15.022l-6.61-7.261L39.647,3.65C34.382,4.82,29.447,6.859,25,9.618V20l-5,5H9.615C6.86,29.44,4.822,34.369,3.65,39.625l4.165,3.764L15.132,50l-7.316,6.61L3.65,60.375C4.822,65.631,6.86,70.56,9.615,75H20l5,5v10.382c4.441,2.755,9.371,4.793,14.628,5.964l3.761-4.162L50,84.867l6.61,7.316l3.761,4.162c5.258-1.171,10.188-3.209,14.629-5.964V80l5-5h10.385c2.755-4.44,4.793-9.369,5.965-14.625l-4.165-3.765L84.869,50l7.315-6.611L96.35,39.625z M50,72.5c-12.427,0-22.5-10.073-22.5-22.5c0-12.426,10.073-22.5,22.5-22.5S72.5,37.574,72.5,50C72.5,62.427,62.427,72.5,50,72.5z"
+  />
+  <polygon
+    *ngIf="type === 'star'"
+    attr.fill="url(#fill-gradient-{{id}})"
+    attr.fill-opacity="{{fillOpacity}}"
+    attr.stroke="#{{stroke}}"
+    attr.stroke-width="{{strokeWidth}}"
+    points="50,9.91 62.022,38.363 92.798,41.005
+69.453,61.23 76.45,91.316 50,75.364 23.55,91.315 30.547,61.23 7.203,41.005 37.978,38.363 "
+  />
+  <!-- start user -->
+  <circle
+    *ngIf="type === 'user'"
+    fill="#FFFFFF"
+    attr.fill="url(#fill-gradient-{{id}})"
+    attr.fill-opacity="{{fillOpacity}}"
+    attr.stroke="#{{stroke}}"
+    attr.stroke-width="{{strokeWidth}}"
+    cx="50"
+    cy="27.5"
+    r="25"
+  />
+  <path
+    *ngIf="type === 'user'"
+    attr.fill="url(#fill-gradient-{{id}})"
+    attr.fill-opacity="{{fillOpacity}}"
+    attr.stroke="#{{stroke}}"
+    attr.stroke-width="{{strokeWidth}}"
+    d="M86.6,52.5H71.647
+C67.324,59.971,59.252,65,50,65s-17.324-5.029-21.647-12.5H14.4c-6.296,0-11.9,5.373-11.9,12v13v8v12h11.9h72.2h10.9v-12v-8v-13
+C97.5,57.873,92.896,52.5,86.6,52.5z"
+  />
+  <!-- end user -->
+  <!-- start bomb -->
+  <path
+    *ngIf="type === 'bomb'"
+    attr.fill="url(#fill-gradient-{{id}})"
+    attr.fill-opacity="{{fillOpacity}}"
+    attr.stroke="#{{stroke}}"
+    attr.stroke-width="{{strokeWidth}}"
+    d="M71.965,18.429
+c-3.904-3.905-10.236-3.905-14.142,0.001l-1.519,1.518C52.002,18.365,47.354,17.5,42.5,17.5c-22.092,0-40,17.909-40,40
+c0,22.092,17.908,40,40,40s40-17.908,40-40c0-4.297-0.686-8.432-1.939-12.312l2.012-2.011c3.904-3.905,3.904-10.237,0-14.143
+L71.965,18.429z"
+  />
+  <path
+    *ngIf="type === 'bomb'"
+    stroke="#000000"
+    stroke-miterlimit="10"
+    d="M87,7.571C87,8.636,86.104,9.5,85,9.5l0,0c-1.104,0-2-0.863-2-1.929V2.429
+C83,1.364,83.896,0.5,85,0.5l0,0c1.104,0,2,0.863,2,1.929V7.571z"
+  />
+  <path
+    *ngIf="type === 'bomb'"
+    stroke="#000000"
+    stroke-miterlimit="10"
+    d="M97.57,13c1.066,0,1.93,0.896,1.93,2l0,0c0,1.104-0.863,2-1.93,2h-5.143
+c-1.064,0-1.929-0.896-1.929-2l0,0c0-1.104,0.862-2,1.929-2H97.57z"
+  />
+  <path
+    *ngIf="type === 'bomb'"
+    stroke="#000000"
+    stroke-miterlimit="10"
+    d="M95.313,7.516c-0.754,0.753-1.998,0.73-2.777-0.051l0,0
+c-0.78-0.781-0.805-2.024-0.051-2.777l3.638-3.637c0.753-0.754,1.996-0.73,2.776,0.05l0,0c0.781,0.78,0.805,2.024,0.052,2.778
+L95.313,7.516z"
+  />
+  <line
+    *ngIf="type === 'bomb'"
+    fill="none"
+    stroke="#000000"
+    stroke-width="5"
+    stroke-miterlimit="10"
+    x1="85"
+    y1="15"
+    x2="75"
+    y2="25"
+  />
+  <!-- end bomb -->
 </svg>

@@ -19,15 +19,15 @@ export class AppComponent {
     type: iconType,
     fill: [
       { color: '00FF00' },
+      { color: '0000FF' },
       { color: 'FF0000' },
-      { color: '0000FF' }
     ],
     fillRotate: false
   }));
 
   fillRotateItems = [
     { key: true, value: 'horizontal' },
-    { key: false, value: 'vertical' }
+    { key: false, value: 'vertical' },
   ];
 
   constructor() {

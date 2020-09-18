@@ -2,14 +2,11 @@ body {
   font-family: Arial;
   margin: auto;
   padding: 0 0.25em;
-
-  @media screen {
-    max-width: 720px;
-  }
+  max-width: 720px;
 }
 
 code {
-  background: linear-gradient(45deg, lightcyan, moccasin);
+  background-color: lightyellow;
 }
 
 .flex-1 {
@@ -28,24 +25,23 @@ form fieldset {
   border-color: transparent;
 }
 
-h2,
-h3 {
+h2 {
   position: sticky;
   top: 0;
   background-color: white;
-
+  margin: 0;
+  padding: 0.25em 0;
   z-index: 2;
 }
 
-h2 {
-  margin: 0;
-  padding: 0.25em 0;
-}
+.col-1-1 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1em;
 
-h3 {
-  margin: 0;
-  padding: 0.5em 0;
-  border-bottom: 1px solid black;
+  @media (max-width: 720px) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .block {

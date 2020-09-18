@@ -8,4 +8,11 @@ export const iconTypes = [
   'times',
   'plus',
   'minus',
+  'row',
+  'column',
+  'bomb',
+  'flag',
+  'gear',
+  'star',
+  'user',
 ] as const;
