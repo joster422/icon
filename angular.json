@@ -69,7 +69,6 @@
             "tsConfig": "projects/playground/tsconfig.app.json",
             "aot": true,
             "assets": [
-              "projects/playground/src/favicon.ico",
               "projects/playground/src/assets"
             ],
             "styles": [
