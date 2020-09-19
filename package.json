@@ -2,7 +2,8 @@
   "name": "icon",
   "version": "0.0.0",
   "scripts": {
-    "watch": "ng build ---watch && ng serve --project=playground",
+    "lib-watch": "ng build ---watch",
+    "doc-watch": "ng serve --project=playground",
     "pages": "ng build --project=playground --prod --base-href=https://joster-dev.github.io/icon/",
     "copy-license": "powershell Copy-Item \".\\LICENSE\" -Destination \".\\dist\\icon\"",
     "package": "ng build --prod && npm run copy-license"
