@@ -23,7 +23,7 @@
     attr.stroke-width="{{strokeWidth}}"
     attr.cx="{{centerX}}"
     attr.cy="{{centerY}}"
-    r="40"
+    r="47.5"
   />
   <circle
     *ngIf="type === 'dot'"
@@ -33,7 +33,7 @@
     attr.stroke-width="{{strokeWidth}}"
     attr.cx="{{centerX}}"
     attr.cy="{{centerY}}"
-    r="20"
+    r="30"
   />
   <path
     *ngIf="type === 'ring'"
@@ -41,7 +41,7 @@
     attr.fill-opacity="{{fillOpacity}}"
     attr.stroke="#{{stroke}}"
     attr.stroke-width="{{strokeWidth}}"
-    attr.d="{{ringPath}}"
+    d="M50,2.5C23.767,2.5,2.5,23.767,2.5,50S23.767,97.5,50,97.5S97.5,76.233,97.5,50S76.233,2.5,50,2.5z M50,80c-16.568,0-30-13.432-30-30c0-16.568,13.432-30,30-30s30,13.432,30,30C80,66.568,66.568,80,50,80z"
   />
   <rect
     *ngIf="type === 'square'"
@@ -49,10 +49,10 @@
     attr.fill-opacity="{{fillOpacity}}"
     attr.stroke="#{{stroke}}"
     attr.stroke-width="{{strokeWidth}}"
-    x="10"
-    y="10"
-    width="80"
-    height="80"
+    x="2.5"
+    y="2.5"
+    width="95"
+    height="95"
   />
   <rect
     *ngIf="type === 'squircle'"
@@ -60,10 +60,10 @@
     attr.fill-opacity="{{fillOpacity}}"
     attr.stroke="#{{stroke}}"
     attr.stroke-width="{{strokeWidth}}"
-    x="10"
-    y="10"
-    width="80"
-    height="80"
+    x="2.5"
+    y="2.5"
+    width="95"
+    height="95"
     rx="15"
   />
   <rect
@@ -72,10 +72,10 @@
     attr.fill-opacity="{{fillOpacity}}"
     attr.stroke="#{{stroke}}"
     attr.stroke-width="{{strokeWidth}}"
-    x="10"
-    y="40"
-    width="80"
-    height="20"
+    x="2.5"
+    y="37.5"
+    width="95"
+    height="25"
   />
   <polygon
     *ngIf="type === 'check'"
@@ -83,7 +83,7 @@
     attr.fill-opacity="{{fillOpacity}}"
     attr.stroke="#{{stroke}}"
     attr.stroke-width="{{strokeWidth}}"
-    points="40,80 90,30 80,20 40,60 20,40 10,50"
+    points="96.465,27.488 82.322,13.347,37.257,58.367 17.675,38.785 3.535,52.928 37.259,86.652"
   />
   <polygon
     *ngIf="type === 'times'"
@@ -91,7 +91,7 @@
     attr.fill-opacity="{{fillOpacity}}"
     attr.stroke="#{{stroke}}"
     attr.stroke-width="{{strokeWidth}}"
-    points="20,90 10,80 40,50 10,20 20,10 50,40 80,10 90,20 60,50 90,80 80,90 50,60"
+    points="64.143,50 96.465,17.678 82.323,3.535,50,35.857 17.678,3.535 3.535,17.676 35.858,50 3.535,82.323 17.678,96.465 50.001,64.142 82.323,96.465 96.465,82.322"
   />
   <polygon
     *ngIf="type === 'plus'"
@@ -99,7 +99,7 @@
     attr.fill-opacity="{{fillOpacity}}"
     attr.stroke="#{{stroke}}"
     attr.stroke-width="{{strokeWidth}}"
-    points="40,90 60,90 60,60 90,60 90,40 60,40 60,10 40,10 40,40 10,40 10,60 40,60"
+    points="97.5,37.5 62.5,37.5 62.5,2.5 37.5,2.5 37.5,37.5 2.5,37.5 2.5,62.5 37.5,62.5 37.5,97.5 62.5,97.5 62.5,62.5 97.5,62.5"
   />
   <polygon
     *ngIf="type === 'row'"
@@ -107,8 +107,7 @@
     attr.fill-opacity="{{fillOpacity}}"
     attr.stroke="#{{stroke}}"
     attr.stroke-width="{{strokeWidth}}"
-    points="72.068,74.703 96.465,50.309
-	71.573,25.418 71.725,40.5 28.275,40.5 28.427,25.418 3.535,50.309 27.932,74.703 28.074,60.5 71.927,60.5 "
+    points="96,50 66.5,20 66.5,37.5 33.5,37.5 33.5,20 4,50 33.5,80 33.5,62.5 66.5,62.5 66.5,80"
   />
   <polygon
     *ngIf="type === 'column'"
@@ -116,8 +115,7 @@
     attr.fill-opacity="{{fillOpacity}}"
     attr.stroke="#{{stroke}}"
     attr.stroke-width="{{strokeWidth}}"
-    points="59.5,28.274 74.583,28.426 49.691,3.535
-	25.296,27.93 39.5,28.073 39.5,71.928 25.296,72.07 49.691,96.465 74.583,71.574 59.5,71.726 "
+    points="62.5,33.535 80,33.535 50,3.535 20,33.535 37.5,33.535 37.5,66.465 20,66.465 50,96.465 80,66.465 62.5,66.465"
   />
   <polygon
     *ngIf="type === 'flag'"
@@ -125,8 +123,7 @@
     attr.fill-opacity="{{fillOpacity}}"
     attr.stroke="#{{stroke}}"
     attr.stroke-width="{{strokeWidth}}"
-    points="93,33.86 22.5,7.368 22.5,2.5 2.5,2.5
-	2.5,97.5 22.5,97.5 22.5,59.915 "
+    points="93,33.86 22.5,7.368 22.5,2.5 2.5,2.5 2.5,97.5 22.5,97.5 22.5,59.915"
   />
   <path
     *ngIf="type === 'gear'"
@@ -163,9 +160,7 @@
     attr.fill-opacity="{{fillOpacity}}"
     attr.stroke="#{{stroke}}"
     attr.stroke-width="{{strokeWidth}}"
-    d="M86.6,52.5H71.647
-C67.324,59.971,59.252,65,50,65s-17.324-5.029-21.647-12.5H14.4c-6.296,0-11.9,5.373-11.9,12v13v8v12h11.9h72.2h10.9v-12v-8v-13
-C97.5,57.873,92.896,52.5,86.6,52.5z"
+    d="M86.6,52.5H71.646 C67.324,59.971,59.252,65,50,65s-17.324-5.029-21.646-12.5H14.4c-6.297,0-11.9,5.373-11.9,12v33h95v-33 C97.5,57.873,92.896,52.5,86.6,52.5z"
   />
   <!-- end user -->
   <!-- start bomb -->
