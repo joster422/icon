@@ -1,7 +1,7 @@
 <h1>Icon Documentation</h1>
 <p>
   <a href="https://github.com/joster-dev/icon/packages/327210">
-    github v0.0.5
+    github v0.0.6
   </a>
 </p>
 <h2>About</h2>
@@ -72,7 +72,7 @@
     </ol>
   </li>
 </ol>
-<h2>Icon Inputs</h2>
+<!-- <h2>Icon Inputs</h2>
 <ul>
   <li>
     <b>type</b>
@@ -154,7 +154,7 @@
       </li>
     </ul>
   </li>
-</ul>
+</ul> -->
 <ng-container *ngFor="let item of typeItems">
   <h2>⭐ {{item.type}} example</h2>
   <br />
@@ -170,8 +170,10 @@
       </div>
       <icon
         [type]="item.type"
-        [fill]="fillColors(item.fill)"
+        [fill]="mapColors(item.fill)"
         [fillRotate]="item.fillRotate"
+        [stroke]="mapColors(item.stroke)"
+        [strokeRotate]="item.strokeRotate"
       ></icon>
     </div>
   </div>
@@ -206,7 +208,7 @@
         >
           <fc-color
             [(ngModel)]="fill.color"
-            name="{{item.type}}-{{idx}}"
+            name="fill-{{item.type}}-{{idx}}"
             class="flex-1"
           ></fc-color>
           <fc-button (clicked)="item.fill.splice(idx, 1)">
@@ -222,7 +224,42 @@
       <fc-choice
         [(ngModel)]="item.fillRotate"
         name="fillRotate"
-        [items]="fillRotateItems"
+        [items]="rotateItems"
+      ></fc-choice>
+    </fieldset>
+    <fieldset>
+      <legend>
+        ⚙️ stroke
+      </legend>
+      <div class="col-1-1">
+        <div class="fill-container">
+          <fc-button (clicked)="item.stroke.push({ color: '000000'})">
+            Add
+          </fc-button>
+        </div>
+        <div
+          *ngFor="let stroke of item.stroke; let idx = index"
+          class="fill-container"
+        >
+          <fc-color
+            [(ngModel)]="stroke.color"
+            name="stroke-{{item.type}}-{{idx}}"
+            class="flex-1"
+          ></fc-color>
+          <fc-button (clicked)="item.stroke.splice(idx, 1)">
+            Remove
+          </fc-button>
+        </div>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>
+        ⚙️ stroke rotate
+      </legend>
+      <fc-choice
+        [(ngModel)]="item.strokeRotate"
+        name="strokeRotate"
+        [items]="rotateItems"
       ></fc-choice>
     </fieldset>
   </form>

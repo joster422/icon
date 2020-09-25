@@ -24,10 +24,9 @@ export class IconComponent extends SizeDirective {
     return this._fill;
   }
   set fill(value: any) {
-    const hexString = /^[0-9A-Fa-f]{6}$/;
-    if (hexString.test(value))
+    if (this.hexString.test(value))
       value = [value];
-    if (Array.isArray(value) && value.every((item: any) => hexString.test(item)))
+    if (Array.isArray(value) && value.every((item: any) => this.hexString.test(item)))
       this._fill = value;
   }
   _fill = ['FFFFFF'];
@@ -43,52 +42,44 @@ export class IconComponent extends SizeDirective {
       value = true;
     if (value === null || value === undefined)
       value = false;
-    if (typeof value !== 'boolean')
-      throw new Error('fillRotate input must be: boolean');
-    this._fillRotate = value;
+    if (typeof value === 'boolean')
+      this._fillRotate = value;
   }
   _fillRotate = false;
-
-  @Input()
-  get fillOpacity() {
-    return this._fillOpacity;
-  }
-  set fillOpacity(value: any) {
-    this._fillOpacity = value;
-  }
-  _fillOpacity = 1;
 
   @Input()
   get stroke() {
     return this._stroke;
   }
   set stroke(value: any) {
-    if (/^[0-9A-Fa-f]{6}$/.test(value))
+    if (this.hexString.test(value))
+      value = [value];
+    if (Array.isArray(value) && value.every((item: any) => this.hexString.test(item)))
       this._stroke = value;
   }
-  _stroke = '000000';
+  _stroke = ['000000'];
 
   @Input()
-  get strokeWidth() {
-    return this._strokeWidth;
+  get strokeRotate() {
+    return this._strokeRotate
+      ? 90
+      : 0;
   }
-  set strokeWidth(value: any) {
-    this._strokeWidth = value;
+  set strokeRotate(value: any) {
+    if (value === '')
+      value = true;
+    if (value === null || value === undefined)
+      value = false;
+    if (typeof value === 'boolean')
+      this._strokeRotate = value;
   }
-  _strokeWidth = 5;
-
-  @Input()
-  get radius() {
-    return this._radius;
-  }
-  set radius(value: any) {
-    this._radius = value;
-  }
-  _radius = 40;
+  _strokeRotate = false;
 
   id = `${Math.random().toString(36).substr(2, 9)}`;
   centerX = 50;
   centerY = 50;
+  strokeWidth = 5;
+  hexString = /^[0-9A-Fa-f]{6}$/;
 
   constructor() {
     super();
@@ -100,14 +91,9 @@ export class IconComponent extends SizeDirective {
     return 100 - (((this.fill.length - 1 - index) / (this.fill.length - 1)) * 100);
   }
 
-  get ringPath() {
-    const outerRadius = 40;
-    const innerRadius = outerRadius - (10 * Math.sqrt(2));
-    return `M ${this.centerX} ${this.centerY - outerRadius}` +
-      `A ${outerRadius} ${outerRadius} 0 1 0 ${this.centerX} ${this.centerY + outerRadius}` +
-      `A ${outerRadius} ${outerRadius} 0 1 0 ${this.centerX} ${this.centerY - outerRadius} Z` +
-      `M ${this.centerX} ${this.centerY - innerRadius}` +
-      `A ${innerRadius} ${innerRadius} 0 1 1 ${this.centerX} ${this.centerY + innerRadius}` +
-      `A ${innerRadius} ${innerRadius} 0 1 1 ${this.centerX} ${this.centerY - innerRadius} Z`;
+  strokeGradientOffset(index: number) {
+    if (this.stroke.length === 1)
+      return '0';
+    return 100 - (((this.stroke.length - 1 - index) / (this.stroke.length - 1)) * 100);
   }
 }

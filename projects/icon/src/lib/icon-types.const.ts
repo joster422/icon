@@ -15,4 +15,5 @@ export const iconTypes = [
   'gear',
   'star',
   'user',
+  'refresh',
 ] as const;

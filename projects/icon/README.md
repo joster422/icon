@@ -10,7 +10,6 @@ Components that contain scalable vector graphics, which can be customized via In
 
 - `fill`
 - `fillRotate`
-- `fillOpacity`
 - `stroke`
-- `strokeWidth`
+- `strokeRotate`
 - `size`

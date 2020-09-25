@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
-import { iconTypes, icon } from '@joster-dev/icon';
-// import { iconTypes, icon } from 'dist/icon';
+// import { iconTypes, icon } from '@joster-dev/icon';
+import { iconTypes, icon } from 'dist/icon';
 
 @Component({
   selector: 'pg-root',
@@ -22,12 +22,16 @@ export class AppComponent {
       { color: '0000FF' },
       { color: 'FF0000' },
     ],
-    fillRotate: false
+    fillRotate: false,
+    stroke: [
+      { color: '000000' }
+    ],
+    strokeRotate: false
   }));
 
-  fillRotateItems = [
-    { key: true, value: 'horizontal' },
+  rotateItems = [
     { key: false, value: 'vertical' },
+    { key: true, value: 'horizontal' },
   ];
 
   constructor() {
@@ -51,7 +55,7 @@ export class AppComponent {
     ];
   }
 
-  fillColors(items: { color: string }[]) {
+  mapColors(items: { color: string }[]) {
     return items.map(item => item.color);
   }
 
@@ -61,6 +65,8 @@ export class AppComponent {
       `size="10em"`,
       `[fill]="[${item.fill.map(fill => `${fill.color === null ? 'null' : `'${fill.color}'`}`).join()}]"`,
       `[fillRotate]="${item.fillRotate}"`,
+      `[stroke]="[${item.stroke.map(stroke => `${stroke.color === null ? 'null' : `'${stroke.color}'`}`).join()}]"`,
+      `[strokeRotate]="${item.strokeRotate}"`,
       `></icon>`
     ];
   }
@@ -70,4 +76,6 @@ interface IconTypeItem {
   type: icon;
   fill: { color: string }[];
   fillRotate: boolean;
+  stroke: { color: string }[];
+  strokeRotate: boolean;
 }
