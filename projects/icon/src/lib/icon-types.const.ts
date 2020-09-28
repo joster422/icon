@@ -16,4 +16,7 @@ export const iconTypes = [
   'star',
   'user',
   'refresh',
+  'ascend',
+  'descend',
+  'search'
 ] as const;

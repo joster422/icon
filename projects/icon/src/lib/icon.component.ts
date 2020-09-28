@@ -33,9 +33,7 @@ export class IconComponent extends SizeDirective {
 
   @Input()
   get fillRotate() {
-    return this._fillRotate
-      ? 90
-      : 0;
+    return this._fillRotate ? 90 : 0;
   }
   set fillRotate(value: any) {
     if (value === '')
@@ -61,9 +59,7 @@ export class IconComponent extends SizeDirective {
 
   @Input()
   get strokeRotate() {
-    return this._strokeRotate
-      ? 90
-      : 0;
+    return this._strokeRotate ? 90 : 0;
   }
   set strokeRotate(value: any) {
     if (value === '')
