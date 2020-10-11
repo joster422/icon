@@ -1,6 +1,6 @@
 {
   "name": "@joster-dev/icon",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   },
@@ -11,12 +11,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/joster-dev/icon"
+    "url": "https://github.com/joster-dev/icon/"
   },
-  "homepage": "https://joster-dev.github.io/icon",
+  "homepage": "https://joster-dev.github.io/icon/",
   "author": {
     "name": "Jacob Osterhout",
-    "url": "https://joster-dev.github.io"
+    "url": "https://joster-dev.github.io/"
   },
   "license": "MIT",
   "peerDependencies": {
