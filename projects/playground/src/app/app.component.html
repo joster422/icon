@@ -209,9 +209,12 @@
           <fc-color
             [(ngModel)]="fill.color"
             name="fill-{{item.type}}-{{idx}}"
-            class="flex-1"
+            [brRight]="false"
           ></fc-color>
-          <fc-button (clicked)="item.fill.splice(idx, 1)">
+          <fc-button
+            [brLeft]="false"
+            (clicked)="item.fill.splice(idx, 1)"
+          >
             Remove
           </fc-button>
         </div>
@@ -244,9 +247,12 @@
           <fc-color
             [(ngModel)]="stroke.color"
             name="stroke-{{item.type}}-{{idx}}"
-            class="flex-1"
+            [brRight]="false"
           ></fc-color>
-          <fc-button (clicked)="item.stroke.splice(idx, 1)">
+          <fc-button
+            [brLeft]="false"
+            (clicked)="item.stroke.splice(idx, 1)"
+          >
             Remove
           </fc-button>
         </div>

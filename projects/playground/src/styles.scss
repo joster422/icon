@@ -6,7 +6,7 @@ body {
 }
 
 code {
-  background-color: lightyellow;
+  background: linear-gradient(45deg, lightcyan, lightyellow);
 }
 
 .flex-1 {
@@ -22,7 +22,8 @@ ol li {
 
 form fieldset {
   margin-top: 0.5em;
-  border-color: transparent;
+  border-color: #ffffff;
+  border-radius: 0.5em;
 }
 
 h2 {
