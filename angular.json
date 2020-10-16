@@ -69,7 +69,7 @@
             "tsConfig": "projects/playground/tsconfig.app.json",
             "aot": true,
             "assets": [
-              "projects/playground/src/assets/icon.png"
+              "projects/playground/src/assets"
             ],
             "styles": [
               "projects/playground/src/styles.scss"

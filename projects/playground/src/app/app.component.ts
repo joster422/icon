@@ -18,9 +18,9 @@ export class AppComponent {
   typeItems: IconTypeItem[] = iconTypes.map(iconType => ({
     type: iconType,
     fill: [
-      { color: '00FF00' },
-      { color: '0000FF' },
-      { color: 'FF0000' },
+      { color: '247000' },
+      { color: '700024' },
+      { color: '002470' },
     ],
     fillRotate: false,
     stroke: [
