@@ -18,5 +18,6 @@ export const iconTypes = [
   'refresh',
   'ascend',
   'descend',
-  'search'
+  'search',
+  'crown'
 ] as const;

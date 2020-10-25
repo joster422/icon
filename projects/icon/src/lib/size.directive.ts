@@ -1,9 +1,10 @@
-import { Directive, Input } from '@angular/core';
+import { Directive, Input, OnDestroy } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Directive({
   selector: 'size'
 })
-export class SizeDirective {
+export class SizeDirective implements OnDestroy {
   @Input()
   get size() {
     return this._size;
@@ -18,6 +19,12 @@ export class SizeDirective {
     // todo: write regex
     // https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/height
     this._size = value;
+    this.sizeChangesSubject.next();
   }
   _size = '100%';
+  sizeChangesSubject = new Subject();
+
+  ngOnDestroy(): void {
+    this.sizeChangesSubject.complete();
+  }
 }

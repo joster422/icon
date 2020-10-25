@@ -1,7 +1,11 @@
-:host div {
-  display: flex;
-  position: relative;
+:host {
+  display: grid;
+  grid-template-columns: 1fr;
   ::ng-deep > icon {
-    position: absolute;
+    grid-row-start: 1;
+    grid-column-start: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
