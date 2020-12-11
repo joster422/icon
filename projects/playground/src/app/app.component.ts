@@ -26,12 +26,17 @@ export class AppComponent {
     stroke: [
       { color: '000000' }
     ],
-    strokeRotate: false
+    strokeRotate: false,
+    spin: null
   }));
-
   rotateItems = [
     { key: false, value: 'vertical' },
     { key: true, value: 'horizontal' },
+  ];
+  spinItems = [
+    { key: 'x', value: 'x' },
+    { key: 'y', value: 'y' },
+    { key: 'z', value: 'z' }
   ];
 
   constructor() {
@@ -78,4 +83,5 @@ interface IconTypeItem {
   fillRotate: boolean;
   stroke: { color: string }[];
   strokeRotate: boolean;
+  spin: 'x' | 'y' | null;
 }

@@ -77,6 +77,9 @@ export class IconComponent extends SizeDirective {
   strokeWidth = 5;
   hexString = /^[0-9A-Fa-f]{6}$/;
 
+  @Input()
+  spin: 'x' | 'y' | 'z' | null = null;
+
   constructor() {
     super();
   }
