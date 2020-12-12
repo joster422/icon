@@ -13,3 +13,4 @@ Components that contain scalable vector graphics, which can be customized via In
 - `stroke`
 - `strokeRotate`
 - `size`
+- `spin`
