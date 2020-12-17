@@ -2,11 +2,13 @@
   "name": "icon",
   "version": "0.0.0",
   "scripts": {
+    "lib": "ng build --watch",
+    "pg": "ng serve --project=playground",
     "pages": "ng build --project=playground --prod --base-href=https://joster-dev.github.io/icon/",
-    "build-lib": "ng build --prod && npm run copy-license",
-    "copy-license": "powershell Copy-Item \".\\LICENSE\" -Destination \".\\dist\\icon\"",
-    "npm-publish": "cd dist/icon && npm publish --force",
-    "package": "npm run build-lib && npm run npm-publish"
+    "package": "npm run _build-lib && npm run _npm-publish",
+    "_build-lib": "ng build --prod && npm run _copy-license",
+    "_copy-license": "powershell Copy-Item \".\\LICENSE\" -Destination \".\\dist\\icon\"",
+    "_npm-publish": "cd dist/icon && npm publish --force"
   },
   "private": true,
   "dependencies": {
