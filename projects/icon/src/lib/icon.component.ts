@@ -46,6 +46,15 @@ export class IconComponent extends SizeDirective {
   _fillRotate = false;
 
   @Input()
+  get fillOpacity(): number {
+    return this._fillOpacity;
+  }
+  set fillOpacity(value: number) {
+    this._fillOpacity = value;
+  }
+  _fillOpacity = 1;
+
+  @Input()
   get stroke() {
     return this._stroke;
   }
