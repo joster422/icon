@@ -5,15 +5,15 @@
     display: block;
 
     &.spin-x {
-      animation: spinX 1s linear infinite;
+      animation: spinX 1.5s linear infinite;
     }
 
     &.spin-y {
-      animation: spinY 1s linear infinite;
+      animation: spinY 1.5s linear infinite;
     }
 
     &.spin-z {
-      animation: spinZ 1s linear infinite;
+      animation: spinZ 1.5s linear infinite;
     }
   }
 }

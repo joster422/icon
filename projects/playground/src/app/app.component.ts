@@ -72,6 +72,7 @@ export class AppComponent {
       `[fillRotate]="${item.fillRotate}"`,
       `[stroke]="[${item.stroke.map(stroke => `${stroke.color === null ? 'null' : `'${stroke.color}'`}`).join()}]"`,
       `[strokeRotate]="${item.strokeRotate}"`,
+      `[spin]="${item.spin}"`,
       `></icon>`
     ];
   }
