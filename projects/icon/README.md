@@ -7,10 +7,11 @@
 
 ### Icons
 - can be scaled up or down to any resolution with no aliasing
+- can be graphically customized
 
 ### Icon stacking
 - context in which icons appear on top of one another
-- icons inside this context can share the same scaling
+- can share the same scaling
 
 ## Getting Started
 1. obtain
