@@ -1,3 +1,6 @@
+<!-- README -->
+<!-- SEARCH -->
+<!-- 1em all icons flex -->
 <ng-container *ngFor="let item of typeItems">
   <h2>⭐ {{item.type}} example</h2>
   <br />
@@ -42,15 +45,15 @@
       </legend>
       <div class="col-1-1">
         <div class="fill-container">
-          <fc-button (clicked)="item.fill.push({ color: '000000'})">
+          <!-- <fc-button (clicked)="item.fill.push({ color: '000000'})">
             Add
-          </fc-button>
+          </fc-button> -->
         </div>
         <div
           *ngFor="let fill of item.fill; let idx = index"
           class="fill-container"
         >
-          <fc-color
+          <!-- <fc-color
             [(ngModel)]="fill.color"
             name="fill-{{item.type}}-{{idx}}"
             [brRight]="false"
@@ -60,7 +63,7 @@
             (clicked)="item.fill.splice(idx, 1)"
           >
             Remove
-          </fc-button>
+          </fc-button> -->
         </div>
       </div>
     </fieldset>
@@ -68,12 +71,12 @@
       <legend>
         ⚙️ fill rotate
       </legend>
-      <fc-choice
+      <!-- <fc-choice
         [(ngModel)]="item.fillRotate"
         name="fillRotate"
         required
         [items]="rotateItems"
-      ></fc-choice>
+      ></fc-choice> -->
     </fieldset>
     <fieldset>
       <legend>
@@ -81,15 +84,15 @@
       </legend>
       <div class="col-1-1">
         <div class="fill-container">
-          <fc-button (clicked)="item.stroke.push({ color: '000000'})">
+          <!-- <fc-button (clicked)="item.stroke.push({ color: '000000'})">
             Add
-          </fc-button>
+          </fc-button> -->
         </div>
         <div
           *ngFor="let stroke of item.stroke; let idx = index"
           class="fill-container"
         >
-          <fc-color
+          <!-- <fc-color
             [(ngModel)]="stroke.color"
             name="stroke-{{item.type}}-{{idx}}"
             [brRight]="false"
@@ -99,7 +102,7 @@
             (clicked)="item.stroke.splice(idx, 1)"
           >
             Remove
-          </fc-button>
+          </fc-button> -->
         </div>
       </div>
     </fieldset>
@@ -107,22 +110,22 @@
       <legend>
         ⚙️ stroke rotate
       </legend>
-      <fc-choice
+      <!-- <fc-choice
         [(ngModel)]="item.strokeRotate"
         name="strokeRotate"
         required
         [items]="rotateItems"
-      ></fc-choice>
+      ></fc-choice> -->
     </fieldset>
     <fieldset>
       <legend>
         ⚙️ spin
       </legend>
-      <fc-choice
+      <!-- <fc-choice
         [(ngModel)]="item.spin"
         name="spin"
         [items]="spinItems"
-      ></fc-choice>
+      ></fc-choice> -->
     </fieldset>
   </form>
   <br />
