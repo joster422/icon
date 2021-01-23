@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
 import { iconTypes, icon } from 'dist/icon';
 
 @Component({
-  selector: 'pg-root',
+  selector: 'doc-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })

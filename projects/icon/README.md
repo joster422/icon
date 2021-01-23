@@ -1,13 +1,17 @@
 # Icon Documentation
 - available on [Github ](https://github.com/joster-dev/icon/packages/327210) version 0.0.13
 - generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.2
+
 ## About
 - dynamic components that contain scalable vector graphics
+
 ### Icons
 - can be scaled up or down to any resolution with no aliasing
+
 ### Icon stacking
 - context in which icons appear on top of one another
 - icons inside this context can share the same scaling
+
 ## Getting Started
 1. obtain
    -  `npm install @joster-dev/icon --save`
@@ -15,6 +19,7 @@
    - `import { IconModule } from '@joster-dev/icon'` 
 1. update
    - `imports: [..., IconModule]`
+   
 ## Inputs
 `type`
    - type: `string`
