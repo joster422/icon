@@ -1,6 +1,6 @@
 // Public API Surface of icon
-export { IconComponent } from './lib/icon.component';
-export { IconStackComponent } from './lib/icon-stack/icon-stack.component';
-export { IconModule } from './lib/icon.module';
-export { iconTypes } from './lib/icon-types.const';
-export { icon } from './lib/icon.type';
+export * from './lib/icon.component';
+export * from './lib/icon-stack/icon-stack.component';
+export * from './lib/icon.module';
+export * from './lib/icon-types.const';
+export * from './lib/icon.type';
