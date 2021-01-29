@@ -10,8 +10,21 @@ code {
   background: linear-gradient(45deg, lightcyan, lightyellow);
 }
 
+.d-flex {
+  display: flex;
+}
+
 .flex-1 {
   flex: 1;
+}
+.flex-2 {
+  flex: 2;
+}
+.flex-3 {
+  flex: 3;
+}
+.f-justify-center {
+  justify-content: center;
 }
 
 ul,
@@ -34,6 +47,17 @@ h2 {
   margin: 0;
   padding: 0.25em 0;
   z-index: 2;
+}
+
+h3 {
+  padding: 0;
+  margin: 0;
+}
+
+.col-1 {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 1em;
 }
 
 .col-1-1 {

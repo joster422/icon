@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 
-// import { iconTypes, icon } from '@joster-dev/icon';
-import { iconTypes, icon } from 'dist/icon';
+import { iconTypes, icon } from '@joster-dev/icon';
+import { Item } from '@joster-dev/form-control';
+// import { iconTypes, icon } from 'dist/icon';
 
 @Component({
   selector: 'doc-root',
@@ -29,11 +30,11 @@ export class AppComponent {
     strokeRotate: false,
     spin: null
   }));
-  rotateItems = [
+  rotateItems: Item[] = [
     { key: false, value: 'vertical' },
     { key: true, value: 'horizontal' },
   ];
-  spinItems = [
+  spinItems: Item[] = [
     { key: 'x', value: 'x' },
     { key: 'y', value: 'y' },
     { key: 'z', value: 'z' }

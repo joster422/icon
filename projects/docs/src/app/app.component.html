@@ -5,29 +5,11 @@
   <h2>⭐ {{item.type}} example</h2>
   <br />
   <div class="row">
-    <div class="icon-container">
-      <div class="icon-bg">
-        <div
-          *ngFor="let cell of bgGrid"
-          [class.accent]="(cell.x + cell.y) % 2 === 0"
-          [style.grid-column]="cell.x"
-          [style.grid-row]="cell.y"
-        ></div>
-      </div>
-      <icon
-        [type]="item.type"
-        [fill]="mapColors(item.fill)"
-        [fillRotate]="item.fillRotate"
-        [stroke]="mapColors(item.stroke)"
-        [strokeRotate]="item.strokeRotate"
-        [spin]="item.spin"
-      ></icon>
-    </div>
-  </div>
-  <form>
-    <fieldset>
-      <legend>🔍 html code</legend>
-      <code class="block">
+    <div class="flex-3">
+      <form>
+        <fieldset>
+          <h3>🔍 html code</h3>
+          <code class="block">
         <span *ngFor="let line of htmlCode(item);  let idx = index">
           <span *ngIf="idx > 0 && idx < htmlCode(item).length - 1">
             &nbsp;&nbsp;
@@ -38,94 +20,112 @@
           <br />
         </span>
       </code>
-    </fieldset>
+        </fieldset>
+      </form>
+    </div>
+    <div class="flex-2 d-flex f-justify-center">
+      <form>
+        <fieldset>
+          <div class="icon-container">
+            <div class="icon-bg">
+              <div
+                *ngFor="let cell of bgGrid"
+                [class.accent]="(cell.x + cell.y) % 2 === 0"
+                [style.grid-column]="cell.x"
+                [style.grid-row]="cell.y"
+              ></div>
+            </div>
+            <icon
+              [type]="item.type"
+              [fill]="mapColors(item.fill)"
+              [fillRotate]="item.fillRotate"
+              [stroke]="mapColors(item.stroke)"
+              [strokeRotate]="item.strokeRotate"
+              [spin]="item.spin"
+            ></icon>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+  <form>
     <fieldset>
-      <legend>
-        ⚙️ fill
-      </legend>
-      <div class="col-1-1">
-        <div class="fill-container">
-          <!-- <fc-button (clicked)="item.fill.push({ color: '000000'})">
-            Add
-          </fc-button> -->
-        </div>
-        <div
-          *ngFor="let fill of item.fill; let idx = index"
-          class="fill-container"
-        >
-          <!-- <fc-color
-            [(ngModel)]="fill.color"
-            name="fill-{{item.type}}-{{idx}}"
-            [brRight]="false"
-          ></fc-color>
-          <fc-button
-            [brLeft]="false"
-            (clicked)="item.fill.splice(idx, 1)"
+      <h3>⚙️ customize</h3>
+      <div class="col-1">
+        <div class="col-1-1">
+          <div class="fill-container">
+            <fc-button (clicked)="item.fill.push({ color: '000000'})">
+              add fill color
+            </fc-button>
+          </div>
+          <div
+            *ngFor="let fill of item.fill; let idx = index"
+            class="fill-container"
           >
-            Remove
-          </fc-button> -->
+            <fc-color
+              [(ngModel)]="fill.color"
+              name="fill-{{item.type}}-{{idx}}"
+              [brRight]="false"
+            >
+              fill color {{idx + 1}}
+            </fc-color>
+            <fc-button
+              [brLeft]="false"
+              (clicked)="item.fill.splice(idx, 1)"
+            >
+              remove
+            </fc-button>
+          </div>
         </div>
-      </div>
-    </fieldset>
-    <fieldset>
-      <legend>
-        ⚙️ fill rotate
-      </legend>
-      <!-- <fc-choice
-        [(ngModel)]="item.fillRotate"
-        name="fillRotate"
-        required
-        [items]="rotateItems"
-      ></fc-choice> -->
-    </fieldset>
-    <fieldset>
-      <legend>
-        ⚙️ stroke
-      </legend>
-      <div class="col-1-1">
-        <div class="fill-container">
-          <!-- <fc-button (clicked)="item.stroke.push({ color: '000000'})">
-            Add
-          </fc-button> -->
-        </div>
-        <div
-          *ngFor="let stroke of item.stroke; let idx = index"
-          class="fill-container"
+        <fc-choice
+          [(ngModel)]="item.fillRotate"
+          name="fillRotate"
+          [required]="true"
+          [items]="rotateItems"
         >
-          <!-- <fc-color
-            [(ngModel)]="stroke.color"
-            name="stroke-{{item.type}}-{{idx}}"
-            [brRight]="false"
-          ></fc-color>
-          <fc-button
-            [brLeft]="false"
-            (clicked)="item.stroke.splice(idx, 1)"
+          fill rotate
+        </fc-choice>
+        <div class="col-1-1">
+          <div class="fill-container">
+            <fc-button (clicked)="item.stroke.push({ color: '000000'})">
+              add stroke color
+            </fc-button>
+          </div>
+          <div
+            *ngFor="let stroke of item.stroke; let idx = index"
+            class="fill-container"
           >
-            Remove
-          </fc-button> -->
+            <fc-color
+              [(ngModel)]="stroke.color"
+              name="stroke-{{item.type}}-{{idx}}"
+              [brRight]="false"
+            >
+              stroke color {{idx + 1}}
+            </fc-color>
+            <fc-button
+              [brLeft]="false"
+              (clicked)="item.stroke.splice(idx, 1)"
+            >
+              remove
+            </fc-button>
+          </div>
         </div>
+        <fc-choice
+          [(ngModel)]="item.strokeRotate"
+          name="strokeRotate"
+          [required]="true"
+          [items]="rotateItems"
+        >
+          stroke rotate
+        </fc-choice>
+        <fc-choice
+          [(ngModel)]="item.spin"
+          name="spin"
+          [items]="spinItems"
+        >
+          spin
+        </fc-choice>
       </div>
-    </fieldset>
-    <fieldset>
-      <legend>
-        ⚙️ stroke rotate
-      </legend>
-      <!-- <fc-choice
-        [(ngModel)]="item.strokeRotate"
-        name="strokeRotate"
-        required
-        [items]="rotateItems"
-      ></fc-choice> -->
-    </fieldset>
-    <fieldset>
-      <legend>
-        ⚙️ spin
-      </legend>
-      <!-- <fc-choice
-        [(ngModel)]="item.spin"
-        name="spin"
-        [items]="spinItems"
-      ></fc-choice> -->
     </fieldset>
   </form>
   <br />
