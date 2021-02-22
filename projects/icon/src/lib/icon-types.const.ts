@@ -22,5 +22,6 @@ export const iconTypes = [
   'crown',
   'ogre',
   'folder',
-  'chevron'
+  'chevron',
+  'ankh'
 ] as const;
