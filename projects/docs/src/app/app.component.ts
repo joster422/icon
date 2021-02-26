@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 
-import { iconTypes, icon } from '@joster-dev/icon';
+// import { iconTypes, icon } from '@joster-dev/icon';
 import { Item } from '@joster-dev/form-control';
-// import { iconTypes, icon } from 'dist/icon';
+import { iconTypes, icon } from 'dist/icon';
 
 @Component({
   selector: 'doc-root',
@@ -16,6 +16,7 @@ export class AppComponent {
   readonly iconStackText = '...</icon-stack>';
 
   bgGrid: { x: number, y: number }[] = [];
+  searchTerm?: string;
   typeItems: IconTypeItem[] = iconTypes.map(iconType => ({
     type: iconType,
     fill: [
@@ -24,6 +25,7 @@ export class AppComponent {
       { color: '002470' },
     ],
     fillRotate: false,
+    fillOpacity: 1,
     stroke: [
       { color: '000000' }
     ],
@@ -38,6 +40,11 @@ export class AppComponent {
     { key: 'x', value: 'x' },
     { key: 'y', value: 'y' },
     { key: 'z', value: 'z' }
+  ];
+  opacityItems: Item[] = [
+    { key: 1, value: '1' },
+    { key: 0.5, value: '0.5' },
+    { key: 0, value: '0' }
   ];
 
   constructor() {
@@ -83,6 +90,7 @@ interface IconTypeItem {
   type: icon;
   fill: { color: string }[];
   fillRotate: boolean;
+  fillOpacity: number;
   stroke: { color: string }[];
   strokeRotate: boolean;
   spin: 'x' | 'y' | null;

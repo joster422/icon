@@ -1,31 +1,19 @@
 <!-- README -->
 <!-- SEARCH -->
+<fc-text
+  [(ngModel)]="searchTerm"
+  [maxLength]="100"
+  placeholder="Find an icon"
+>Search</fc-text>
+
 <!-- 1em all icons flex -->
 <ng-container *ngFor="let item of typeItems">
   <h2>⭐ {{item.type}} example</h2>
-  <br />
-  <div class="row">
-    <div class="flex-3">
-      <form>
-        <fieldset>
-          <h3>🔍 html code</h3>
-          <code class="block">
-        <span *ngFor="let line of htmlCode(item);  let idx = index">
-          <span *ngIf="idx > 0 && idx < htmlCode(item).length - 1">
-            &nbsp;&nbsp;
-          </span>
-          <span>
-            {{line}}
-          </span>
-          <br />
-        </span>
-      </code>
-        </fieldset>
-      </form>
-    </div>
-    <div class="flex-2 d-flex f-justify-center">
-      <form>
-        <fieldset>
+  <div>
+
+    <div class="heading">
+      <div class="d-flex">
+        <div class="icon-frame">
           <div class="icon-container">
             <div class="icon-bg">
               <div
@@ -39,22 +27,37 @@
               [type]="item.type"
               [fill]="mapColors(item.fill)"
               [fillRotate]="item.fillRotate"
+              [fillOpacity]="item.fillOpacity"
               [stroke]="mapColors(item.stroke)"
               [strokeRotate]="item.strokeRotate"
               [spin]="item.spin"
             ></icon>
           </div>
-        </fieldset>
-      </form>
+        </div>
+      </div>
+      <div class="flex-1">
+        <h3>🔍 html code</h3>
+        <code class="block">
+          <div *ngFor="let line of htmlCode(item);  let idx = index">
+            <span *ngIf="idx > 0 && idx < htmlCode(item).length - 1">
+              &nbsp;&nbsp;
+            </span>
+            <span>
+              {{line}}
+            </span>
+          </div>
+        </code>
+      </div>
     </div>
-  </div>
-  <form>
-    <fieldset>
+    <form>
       <h3>⚙️ customize</h3>
       <div class="col-1">
         <div class="col-1-1">
           <div class="fill-container">
-            <fc-button (clicked)="item.fill.push({ color: '000000'})">
+            <fc-button
+              [isDisabled]="item.fill.length >= 5"
+              (clicked)="item.fill.push({ color: '000000'})"
+            >
               add fill color
             </fc-button>
           </div>
@@ -85,9 +88,20 @@
         >
           fill rotate
         </fc-choice>
+        <fc-choice
+          [(ngModel)]="item.fillOpacity"
+          name="fillOpacity"
+          [required]="true"
+          [items]="opacityItems"
+        >
+          fill opacity
+        </fc-choice>
         <div class="col-1-1">
           <div class="fill-container">
-            <fc-button (clicked)="item.stroke.push({ color: '000000'})">
+            <fc-button
+              [isDisabled]="item.stroke.length >= 5"
+              (clicked)="item.stroke.push({ color: '000000'})"
+            >
               add stroke color
             </fc-button>
           </div>
@@ -126,9 +140,8 @@
           spin
         </fc-choice>
       </div>
-    </fieldset>
-  </form>
-  <br />
+    </form>
+  </div>
 </ng-container>
 <h2>Icon Stack Inputs</h2>
 <ul>
@@ -148,7 +161,6 @@
   </li>
 </ul>
 <h2>⭐ icon stack example</h2>
-<br />
 <div class="row">
   <div class="icon-container">
     <div class="icon-bg">
@@ -173,15 +185,16 @@
     <legend>🔍 html code</legend>
     <code class="block">
       <span *ngFor="let item of iconStackHtmlCode; let idx = index">
-        <span *ngIf="idx > 0 && idx < iconStackHtmlCode.length - 1">
-          &nbsp;&nbsp;
-        </span>
-        <span>
-          {{item}}
-        </span>
-        <br />
+        <div>
+          <span *ngIf="idx > 0 && idx < iconStackHtmlCode.length - 1">
+            &nbsp;&nbsp;
+          </span>
+          <span>
+            {{item}}
+          </span>
+        </div>
       </span>
     </code>
   </fieldset>
 </form>
-<br />
+<div id="background"></div>

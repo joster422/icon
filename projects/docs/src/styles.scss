@@ -4,27 +4,7 @@ body {
   margin: auto;
   padding: 0 0.25em;
   max-width: 720px;
-}
-
-code {
-  background: linear-gradient(45deg, lightcyan, lightyellow);
-}
-
-.d-flex {
-  display: flex;
-}
-
-.flex-1 {
-  flex: 1;
-}
-.flex-2 {
-  flex: 2;
-}
-.flex-3 {
-  flex: 3;
-}
-.f-justify-center {
-  justify-content: center;
+  color: whitesmoke;
 }
 
 ul,
@@ -34,16 +14,7 @@ ol li {
   margin-top: 0.5em;
 }
 
-form fieldset {
-  margin-top: 0.5em;
-  border-color: #ffffff;
-  border-radius: 0.5em;
-}
-
 h2 {
-  position: sticky;
-  top: 0;
-  background-color: white;
   margin: 0;
   padding: 0.25em 0;
   z-index: 2;
@@ -70,6 +41,17 @@ h3 {
   }
 }
 
-.block {
-  display: block;
+.pos-sticky {
+  position: sticky;
+  top: 0;
+}
+
+.d-flex {
+  display: flex;
+}
+.f-justify-center {
+  justify-content: center;
+}
+.f-justify-right {
+  justify-content: flex-end;
 }
