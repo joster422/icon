@@ -9,7 +9,6 @@
 
 .icon-frame {
   background-color: white;
-  margin-top: 0.5em;
   border-color: black;
   border-radius: 0.5em;
   border-style: solid;
@@ -22,7 +21,8 @@
   width: 10em;
   height: 10em;
 
-  > icon {
+  > icon,
+  > icon-stack {
     position: absolute;
   }
 
@@ -52,13 +52,30 @@ code {
   border: 1px solid #cccccc;
   padding: 0.5em;
   border-radius: 0.5em;
-  margin-top: 0.5em;
+
+  span {
+    word-break: break-all;
+  }
 }
 
 .heading {
   display: flex;
   position: sticky;
   top: 0;
+  height: fit-content;
+}
+
+.github {
+  font-size: 1.5em;
+  color: whitesmoke;
+
+  &:visited {
+    color: lightgrey;
+  }
+}
+
+footer {
+  margin: 3em 0;
 }
 
 #background {

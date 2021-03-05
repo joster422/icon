@@ -1,4 +1,60 @@
 <!-- README -->
+<h1>icon documentation</h1>
+
+<ng-template #github>
+  <div class="pt-2 pb-2">
+    <a
+      href="https://github.com/joster-dev/icon/packages/327210"
+      class="github"
+    >
+      github v0.1.1
+    </a>
+  </div>
+</ng-template>
+
+<ng-container *ngTemplateOutlet="github"></ng-container>
+
+<h2>icon stack example</h2>
+<div class="d-flex pb-2">
+  <div class="flex-1">
+    <h3>html code</h3>
+    <code class="block">
+      <span *ngFor="let item of iconStackHtmlCode; let idx = index">
+        <div>
+          <span *ngIf="idx > 0 && idx < iconStackHtmlCode.length - 1">
+            &nbsp;&nbsp;
+          </span>
+          <span>
+            {{item}}
+          </span>
+        </div>
+      </span>
+    </code>
+  </div>
+  <div class="heading">
+    <div class="d-flex">
+      <div class="icon-frame">
+        <div class="icon-container">
+          <div class="icon-bg">
+            <div
+              *ngFor="let cell of bgGrid"
+              [class.accent]="(cell.x + cell.y) % 2 === 0"
+              [style.grid-column]="cell.x"
+              [style.grid-row]="cell.y"
+            ></div>
+          </div>
+          <icon-stack size="10em">
+            <icon
+              type="times"
+              [fill]="['00FF00', 'FF0000', '0000FF']"
+            ></icon>
+            <icon type="ring"></icon>
+          </icon-stack>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <!-- SEARCH -->
 <fc-text
   [(ngModel)]="searchTerm"
@@ -6,12 +62,133 @@
   placeholder="Find an icon"
 >Search</fc-text>
 
-<!-- 1em all icons flex -->
-<ng-container *ngFor="let item of typeItems">
-  <h2>⭐ {{item.type}} example</h2>
-  <div>
+<div class="d-flex flex-wrap f-justify-center">
+  <a
+    *ngFor="let icon of typeItems"
+    class="pt-2 pl-1 pr-1"
+    [hidden]="!filteredTypes.includes(icon.type)"
+    [href]="'#' + icon.type"
+    [title]="icon.type"
+  >
+    <fc-button>
+      <icon
+        [type]="icon.type"
+        size="3em"
+        fillRotate
+        [fill]="['000000', '247000']"
+      ></icon>
+    </fc-button>
+  </a>
+</div>
 
-    <div class="heading">
+<div
+  *ngFor="let item of typeItems"
+  [hidden]="!filteredTypes.includes(item.type)"
+>
+  <h2 [id]="item.type">
+    {{item.type}} example
+  </h2>
+  <div class="d-flex">
+    <form class="flex-1">
+      <h3>configure</h3>
+      <div class="col-1-1">
+        <div class="fill-container">
+          <fc-button
+            [isDisabled]="item.fill.length >= 5"
+            (clicked)="item.fill.push({ color: '000000'})"
+          >
+            add fill color
+          </fc-button>
+        </div>
+        <div
+          *ngFor="let fill of item.fill; let idx = index"
+          class="fill-container"
+        >
+          <fc-color
+            [(ngModel)]="fill.color"
+            name="fill-{{item.type}}-{{idx}}"
+            [brRight]="false"
+          >
+            fill color {{idx + 1}}
+          </fc-color>
+          <fc-button
+            [brLeft]="false"
+            (clicked)="item.fill.splice(idx, 1)"
+          >
+            remove
+          </fc-button>
+        </div>
+        <fc-choice
+          [(ngModel)]="item.fillRotate"
+          name="fillRotate"
+          [required]="true"
+          [items]="rotateItems"
+        >
+          fill rotate
+        </fc-choice>
+        <fc-choice
+          [(ngModel)]="item.fillOpacity"
+          name="fillOpacity"
+          [required]="true"
+          [items]="opacityItems"
+        >
+          fill opacity
+        </fc-choice>
+        <div class="fill-container">
+          <fc-button
+            [isDisabled]="item.stroke.length >= 5"
+            (clicked)="item.stroke.push({ color: '000000'})"
+          >
+            add stroke color
+          </fc-button>
+        </div>
+        <div
+          *ngFor="let stroke of item.stroke; let idx = index"
+          class="fill-container"
+        >
+          <fc-color
+            [(ngModel)]="stroke.color"
+            name="stroke-{{item.type}}-{{idx}}"
+            [brRight]="false"
+          >
+            stroke color {{idx + 1}}
+          </fc-color>
+          <fc-button
+            [brLeft]="false"
+            (clicked)="item.stroke.splice(idx, 1)"
+          >
+            remove
+          </fc-button>
+        </div>
+        <fc-choice
+          [(ngModel)]="item.strokeRotate"
+          name="strokeRotate"
+          [required]="true"
+          [items]="rotateItems"
+        >
+          stroke rotate
+        </fc-choice>
+        <fc-choice
+          [(ngModel)]="item.spin"
+          name="spin"
+          [items]="spinItems"
+        >
+          spin
+        </fc-choice>
+      </div>
+      <h3>html code</h3>
+      <code class="block">
+        <div *ngFor="let line of htmlCode(item);  let idx = index">
+          <span *ngIf="idx > 0 && idx < htmlCode(item).length - 1">
+            &nbsp;&nbsp;
+          </span>
+          <span>
+            {{line}}
+          </span>
+        </div>
+      </code>
+    </form>
+    <div class="heading pl-1 pt-1">
       <div class="d-flex">
         <div class="icon-frame">
           <div class="icon-container">
@@ -35,166 +212,11 @@
           </div>
         </div>
       </div>
-      <div class="flex-1">
-        <h3>🔍 html code</h3>
-        <code class="block">
-          <div *ngFor="let line of htmlCode(item);  let idx = index">
-            <span *ngIf="idx > 0 && idx < htmlCode(item).length - 1">
-              &nbsp;&nbsp;
-            </span>
-            <span>
-              {{line}}
-            </span>
-          </div>
-        </code>
-      </div>
     </div>
-    <form>
-      <h3>⚙️ customize</h3>
-      <div class="col-1">
-        <div class="col-1-1">
-          <div class="fill-container">
-            <fc-button
-              [isDisabled]="item.fill.length >= 5"
-              (clicked)="item.fill.push({ color: '000000'})"
-            >
-              add fill color
-            </fc-button>
-          </div>
-          <div
-            *ngFor="let fill of item.fill; let idx = index"
-            class="fill-container"
-          >
-            <fc-color
-              [(ngModel)]="fill.color"
-              name="fill-{{item.type}}-{{idx}}"
-              [brRight]="false"
-            >
-              fill color {{idx + 1}}
-            </fc-color>
-            <fc-button
-              [brLeft]="false"
-              (clicked)="item.fill.splice(idx, 1)"
-            >
-              remove
-            </fc-button>
-          </div>
-        </div>
-        <fc-choice
-          [(ngModel)]="item.fillRotate"
-          name="fillRotate"
-          [required]="true"
-          [items]="rotateItems"
-        >
-          fill rotate
-        </fc-choice>
-        <fc-choice
-          [(ngModel)]="item.fillOpacity"
-          name="fillOpacity"
-          [required]="true"
-          [items]="opacityItems"
-        >
-          fill opacity
-        </fc-choice>
-        <div class="col-1-1">
-          <div class="fill-container">
-            <fc-button
-              [isDisabled]="item.stroke.length >= 5"
-              (clicked)="item.stroke.push({ color: '000000'})"
-            >
-              add stroke color
-            </fc-button>
-          </div>
-          <div
-            *ngFor="let stroke of item.stroke; let idx = index"
-            class="fill-container"
-          >
-            <fc-color
-              [(ngModel)]="stroke.color"
-              name="stroke-{{item.type}}-{{idx}}"
-              [brRight]="false"
-            >
-              stroke color {{idx + 1}}
-            </fc-color>
-            <fc-button
-              [brLeft]="false"
-              (clicked)="item.stroke.splice(idx, 1)"
-            >
-              remove
-            </fc-button>
-          </div>
-        </div>
-        <fc-choice
-          [(ngModel)]="item.strokeRotate"
-          name="strokeRotate"
-          [required]="true"
-          [items]="rotateItems"
-        >
-          stroke rotate
-        </fc-choice>
-        <fc-choice
-          [(ngModel)]="item.spin"
-          name="spin"
-          [items]="spinItems"
-        >
-          spin
-        </fc-choice>
-      </div>
-    </form>
-  </div>
-</ng-container>
-<h2>Icon Stack Inputs</h2>
-<ul>
-  <li>
-    <code>size</code>
-    <ul>
-      <li>
-        expects <code>string</code>
-      </li>
-      <li>
-        default <code>'100%'</code>
-      </li>
-      <li>
-        for scaling all nested icons
-      </li>
-    </ul>
-  </li>
-</ul>
-<h2>⭐ icon stack example</h2>
-<div class="row">
-  <div class="icon-container">
-    <div class="icon-bg">
-      <div
-        *ngFor="let cell of bgGrid"
-        [class.accent]="(cell.x + cell.y) % 2 === 0"
-        [style.grid-column]="cell.x"
-        [style.grid-row]="cell.y"
-      ></div>
-    </div>
-    <icon-stack size="10em">
-      <icon
-        type="times"
-        [fill]="['00FF00', 'FF0000', '0000FF']"
-      ></icon>
-      <icon type="ring"></icon>
-    </icon-stack>
   </div>
 </div>
-<form>
-  <fieldset>
-    <legend>🔍 html code</legend>
-    <code class="block">
-      <span *ngFor="let item of iconStackHtmlCode; let idx = index">
-        <div>
-          <span *ngIf="idx > 0 && idx < iconStackHtmlCode.length - 1">
-            &nbsp;&nbsp;
-          </span>
-          <span>
-            {{item}}
-          </span>
-        </div>
-      </span>
-    </code>
-  </fieldset>
-</form>
+<footer>
+  <ng-container *ngTemplateOutlet="github"></ng-container>
+</footer>
+
 <div id="background"></div>

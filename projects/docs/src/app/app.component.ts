@@ -16,7 +16,7 @@ export class AppComponent {
   readonly iconStackText = '...</icon-stack>';
 
   bgGrid: { x: number, y: number }[] = [];
-  searchTerm?: string;
+  searchTerm: string | null = null;
   typeItems: IconTypeItem[] = iconTypes.map(iconType => ({
     type: iconType,
     fill: [
@@ -51,6 +51,15 @@ export class AppComponent {
     for (let x = 1; x <= 10; x++)
       for (let y = 1; y <= 10; y++)
         this.bgGrid.push({ x, y });
+  }
+
+  get filteredTypes(): string[] {
+    if (this.searchTerm === null) {
+      return this.typeItems.map(item => item.type);
+    }
+    return this.typeItems
+      .filter(item => item.type.toLowerCase().includes(this.searchTerm!.toLowerCase()))
+      .map(item => item.type);
   }
 
   get types() {
