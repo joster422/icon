@@ -72,7 +72,12 @@
             "tsConfig": "projects/docs/tsconfig.app.json",
             "aot": true,
             "assets": [
-              "projects/docs/src/assets"
+              "projects/docs/src/assets",
+              {
+                "glob": "README.md",
+                "input": "./node_modules/@joster-dev/icon/",
+                "output": "./assets/"
+              }
             ],
             "styles": [
               "projects/docs/src/styles.scss"
