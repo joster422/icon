@@ -45,19 +45,6 @@
   align-items: flex-end;
 }
 
-code {
-  display: inline-block;
-  background-color: #f8f8f8;
-  color: black;
-  border: 1px solid #cccccc;
-  padding: 0.5em;
-  border-radius: 0.5em;
-
-  span {
-    word-break: break-all;
-  }
-}
-
 .heading {
   display: flex;
   position: sticky;
@@ -75,7 +62,7 @@ code {
 }
 
 footer {
-  margin: 3em 0;
+  margin: 4em 0;
 }
 
 #background {

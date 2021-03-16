@@ -1,25 +1,33 @@
-# Icon Documentation
-- available on [Github ](https://github.com/joster-dev/icon/packages/327210) version 0.0.13
-- generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.2
+# icon documentation
+- [Repository](https://github.com/joster-dev/icon)
+- [Github Package](https://github.com/joster-dev/icon/packages/327210)
+- [Demo](https://joster-dev.github.io/icon/)
 
-## About
-- dynamic components that contain scalable vector graphics
+icon is an [Angular](https://angular.io/) library with dynamic components that contain scalable vector graphics
 
-### Icons
+### icons
 - can be scaled up or down to any resolution with no aliasing
 - can be graphically customized
 
-### Icon stacking
-- context in which icons appear on top of one another
-- can share the same scaling
+### icon stacking
+context in which icons appear on top of one another  
+can share the same scaling
 
-## Getting Started
-1. obtain
-   -  `npm install @joster-dev/icon --save`
-1. import
-   - `import { IconModule } from '@joster-dev/icon'` 
-1. update
-   - `imports: [..., IconModule]`
+## getting started
+update your `package.json`
+```bash
+npm install @joster-dev/icon --save
+```
+import the module
+```diff
++ import { IconModule } from '@joster-dev/icon';
+
+@NgModule({
+  imports: [
++    IconModule
+  ],
+})
+```
    
 ## Inputs
 `type`

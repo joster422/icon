@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 
 // import { iconTypes, icon } from '@joster-dev/icon';
 import { Item } from '@joster-dev/form-control';
 import { iconTypes, icon } from 'dist/icon';
+
 
 @Component({
   selector: 'doc-root',
@@ -10,6 +11,8 @@ import { iconTypes, icon } from 'dist/icon';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  @ViewChild('searchInput') searchInput!: ElementRef;
+
   readonly iconStartText = '<icon';
   readonly iconEndText = '></icon>';
   readonly iconText = '<icon type></icon>';
@@ -77,6 +80,11 @@ export class AppComponent {
     ];
   }
 
+  onRefineClicked() {
+    this.searchTerm = null;
+    this.searchInput.nativeElement.focus();
+  }
+
   mapColors(items: { color: string }[]) {
     return items.map(item => item.color);
   }
@@ -85,7 +93,7 @@ export class AppComponent {
     return [
       `<icon type="${item.type}"`,
       `size="10em"`,
-      `[fill]="[${item.fill.map(fill => `${fill.color === null ? 'null' : `'${fill.color}'`}`).join()}]"`,
+      `[fill]="[${item.fill.map(fill => `${fill.color === null ? 'null' : `'${fill.color}'`}`).join(', ')}]"`,
       `[fillRotate]="${item.fillRotate}"`,
       `[stroke]="[${item.stroke.map(stroke => `${stroke.color === null ? 'null' : `'${stroke.color}'`}`).join()}]"`,
       `[strokeRotate]="${item.strokeRotate}"`,

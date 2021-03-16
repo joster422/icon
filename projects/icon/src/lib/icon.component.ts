@@ -14,6 +14,8 @@ export class IconComponent extends SizeDirective {
     return this._type;
   }
   set type(value: any) {
+    if (typeof value === 'string')
+      value = value.toLowerCase();
     if (iconTypes.includes(value))
       this._type = value;
   }

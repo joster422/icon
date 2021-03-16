@@ -1,18 +1,4 @@
-<!-- README -->
-<h1>icon documentation</h1>
-
-<ng-template #github>
-  <div class="pt-2 pb-2">
-    <a
-      href="https://github.com/joster-dev/icon/packages/327210"
-      class="github"
-    >
-      github v0.1.1
-    </a>
-  </div>
-</ng-template>
-
-<ng-container *ngTemplateOutlet="github"></ng-container>
+<markdown src="assets/README.md"></markdown>
 
 <h2>icon stack example</h2>
 <div class="d-flex pb-2">
@@ -55,8 +41,9 @@
     </div>
   </div>
 </div>
-<!-- SEARCH -->
+
 <fc-text
+  #searchInput
   [(ngModel)]="searchTerm"
   [maxLength]="100"
   placeholder="Find an icon"
@@ -79,6 +66,15 @@
       ></icon>
     </fc-button>
   </a>
+</div>
+
+<div
+  *ngIf="filteredTypes.length === 0"
+  class="d-flex f-justify-center pb-2 pt-2"
+>
+  <fc-button (clicked)="onRefineClicked()">
+    Please refine your search
+  </fc-button>
 </div>
 
 <div
@@ -216,8 +212,6 @@
   </div>
 </div>
 
-<footer>
-  <ng-container *ngTemplateOutlet="github"></ng-container>
-</footer>
+<footer></footer>
 
 <div id="background"></div>
