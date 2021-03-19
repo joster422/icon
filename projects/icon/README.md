@@ -1,17 +1,8 @@
-# icon documentation
+# icon
+icon is an [Angular](https://angular.io/) library with dynamic components that contain scalable vector graphics
 - [Repository](https://github.com/joster-dev/icon)
 - [Github Package](https://github.com/joster-dev/icon/packages/327210)
 - [Demo](https://joster-dev.github.io/icon/)
-
-icon is an [Angular](https://angular.io/) library with dynamic components that contain scalable vector graphics
-
-### icons
-- can be scaled up or down to any resolution with no aliasing
-- can be graphically customized
-
-### icon stacking
-context in which icons appear on top of one another  
-can share the same scaling
 
 ## getting started
 update your `package.json`
@@ -28,44 +19,39 @@ import the module
   ],
 })
 ```
-   
-## Inputs
-`type`
-   - type: `string`
-   - for: icon selection
-   - required
 
-`fill`
-   - type: `string | string[]`
-   - for: main colors, arranged left to right
-   - default: `['FFFFFF']`
+## icon component
+*can be scaled up or down to any resolution with no aliasing*
 
-`fillRotate`
-   - type: `boolean`
-   - for: rotate fill by 90°
-   - default: `false`
+*can be graphically customized*
 
-`fillOpacity`
-   - type: `number`
-   - for: fill transparency
-   - default: `1`
+input **`fill`** expects `string | string[]` defaults to `['FFFFFF']`
+- for main colors, arranged left to right
 
-`stroke`
-   - type: `string | string[]`
-   - for: outline colors, arranged left to right
-   - default: `['000000']`
+input **`fillRotate`** expects `boolean` defaults to `false`
+- for rotate fill by 90°
 
-`strokeRotate`
-   - type: `boolean`
-   - for: rotate stroke by 90°
-   - default: `false`
+input **`fillOpacity`** expects `number` defaults to `1`
+- for fill transparency
 
-`size`
-   - type: `<length> | <percentage>`
-   - for: width and height
-   - default: `'100%'`
+input **`stroke`** expects `string | string[]` defaults to `['000000']`
+- for outline colors, arranged left to right
 
-`spin`
-   - type: `'x' | 'y' | 'z'`
-   - for: linear rotation animation 
-   - default: `null`
+input **`strokeRotate`** expects `boolean` defaults to `false`
+- for rotate stroke by 90°
+
+input **`size`** expects `<length> | <percentage>` defaults to `'100%'`
+- for scaling width and height
+
+input **`spin`** expects `'x' | 'y' | 'z'`
+- for linear rotation animation 
+
+**required** input **`type`** expects `string`
+- for icon selection
+## icon-stack component
+*can contain icons which will appear on top of one another*
+
+*can horizontally and vertically center contained icons*
+
+input **`size`** expects `<length> | <percentage>` defaults to `'100%'`
+- for scaling width and height of all contained icons
