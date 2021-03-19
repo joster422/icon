@@ -47,7 +47,7 @@
     {{item.type}} demo
   </h3>
   <div class="d-flex">
-    <form class="flex-1">
+    <form class="flex-1 overflow-hidden">
       <h4>configure</h4>
       <div class="col-1-1">
         <div class="fill-container">
@@ -167,13 +167,11 @@
 
 <h3>icon-stack demo</h3>
 <div class="d-flex pb-2">
-  <div class="flex-1">
+  <div class="flex-1 overflow-hidden">
     <h4>html code</h4>
-    <pre><code class="language-markup">
-      {{iconStackHtmlCode.join('\n')}}
-    </code></pre>
+    <pre><code class="language-markup">{{iconStackHtmlCode.join('\n')}}</code></pre>
   </div>
-  <div class="heading">
+  <div class="heading pl-1 pt-1">
     <div class="d-flex">
       <div class="icon-frame">
         <div class="icon-container">

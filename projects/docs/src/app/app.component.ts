@@ -71,12 +71,19 @@ export class AppComponent {
   }
 
   get iconStackHtmlCode() {
-    return [
+    let lines = [
       '<icon-stack size="10em">',
-      `<icon type="times" [fill]="['00FF00', 'FF0000', '0000FF']"></icon>`,
+      `<icon type="times"`,
+      `  [fill]="['00FF00', 'FF0000', '0000FF']"></icon>`,
       `<icon type="ring"></icon>`,
       '</icon-stack>'
     ];
+    lines = lines.map((line, index) => {
+      if (index > 0 && index < lines.length - 1)
+        return `  ${line}`;
+      return line;
+    });
+    return lines;
   }
 
   onRefineClicked() {
