@@ -135,16 +135,7 @@
         </fc-choice>
       </div>
       <h4>html code</h4>
-      <code class="block">
-        <div *ngFor="let line of htmlCode(item);  let idx = index">
-          <span *ngIf="idx > 0 && idx < htmlCode(item).length - 1">
-            &nbsp;&nbsp;
-          </span>
-          <span>
-            {{line}}
-          </span>
-        </div>
-      </code>
+      <pre><code class="language-markup">{{htmlCode(item).join('\n')}}</code></pre>
     </form>
     <div class="heading pl-1 pt-1">
       <div class="d-flex">
@@ -178,18 +169,9 @@
 <div class="d-flex pb-2">
   <div class="flex-1">
     <h4>html code</h4>
-    <code class="block">
-      <span *ngFor="let item of iconStackHtmlCode; let idx = index">
-        <div>
-          <span *ngIf="idx > 0 && idx < iconStackHtmlCode.length - 1">
-            &nbsp;&nbsp;
-          </span>
-          <span>
-            {{item}}
-          </span>
-        </div>
-      </span>
-    </code>
+    <pre><code class="language-markup">
+      {{iconStackHtmlCode.join('\n')}}
+    </code></pre>
   </div>
   <div class="heading">
     <div class="d-flex">

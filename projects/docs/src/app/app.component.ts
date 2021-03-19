@@ -89,7 +89,7 @@ export class AppComponent {
   }
 
   htmlCode(item: IconTypeItem) {
-    return [
+    let lines = [
       `<icon type="${item.type}"`,
       `size="10em"`,
       `[fill]="[${item.fill.map(fill => `${fill.color === null ? 'null' : `'${fill.color}'`}`).join(', ')}]"`,
@@ -98,7 +98,13 @@ export class AppComponent {
       `[strokeRotate]="${item.strokeRotate}"`,
       `[spin]="${item.spin}"`,
       `></icon>`
-    ];
+    ]
+    lines = lines.map((line, index) => {
+      if (index > 0 && index < lines.length - 1)
+        return `  ${line}`;
+      return line;
+    });
+    return lines;
   }
 }
 
