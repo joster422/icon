@@ -5,8 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { MarkdownModule } from 'ngx-markdown';
 
 import { FormControlModule } from '@joster-dev/form-control';
-// import { IconModule } from '@joster-dev/icon';
-import { IconModule } from 'dist/icon';
+import { IconModule } from '@joster-dev/icon';
+// import { IconModule } from 'dist/icon';
 
 import { AppComponent } from './app.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';

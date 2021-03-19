@@ -1,53 +1,15 @@
 <markdown src="assets/README.md"></markdown>
 
-<h2>icon stack demo</h2>
-<div class="d-flex pb-2">
-  <div class="flex-1">
-    <h3>html code</h3>
-    <code class="block">
-      <span *ngFor="let item of iconStackHtmlCode; let idx = index">
-        <div>
-          <span *ngIf="idx > 0 && idx < iconStackHtmlCode.length - 1">
-            &nbsp;&nbsp;
-          </span>
-          <span>
-            {{item}}
-          </span>
-        </div>
-      </span>
-    </code>
-  </div>
-  <div class="heading">
-    <div class="d-flex">
-      <div class="icon-frame">
-        <div class="icon-container">
-          <div class="icon-bg">
-            <div
-              *ngFor="let cell of bgGrid"
-              [class.accent]="(cell.x + cell.y) % 2 === 0"
-              [style.grid-column]="cell.x"
-              [style.grid-row]="cell.y"
-            ></div>
-          </div>
-          <icon-stack size="10em">
-            <icon
-              type="times"
-              [fill]="['00FF00', 'FF0000', '0000FF']"
-            ></icon>
-            <icon type="ring"></icon>
-          </icon-stack>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
-<fc-text
-  #searchInput
-  [(ngModel)]="searchTerm"
-  [maxLength]="100"
-  placeholder="Find an icon"
->Search</fc-text>
+<h2>icon demos</h2>
+<div class="pt-2">
+  <fc-text
+    #searchInput
+    [(ngModel)]="searchTerm"
+    [maxLength]="100"
+    placeholder="Find an icon by name"
+  >demo search</fc-text>
+</div>
 
 <div class="d-flex flex-wrap f-justify-center">
   <a
@@ -81,12 +43,12 @@
   *ngFor="let item of typeItems"
   [hidden]="!filteredTypes.includes(item.type)"
 >
-  <h2 [id]="item.type">
+  <h3 [id]="item.type">
     {{item.type}} demo
-  </h2>
+  </h3>
   <div class="d-flex">
     <form class="flex-1">
-      <h3>configure</h3>
+      <h4>configure</h4>
       <div class="col-1-1">
         <div class="fill-container">
           <fc-button
@@ -172,7 +134,7 @@
           spin
         </fc-choice>
       </div>
-      <h3>html code</h3>
+      <h4>html code</h4>
       <code class="block">
         <div *ngFor="let line of htmlCode(item);  let idx = index">
           <span *ngIf="idx > 0 && idx < htmlCode(item).length - 1">
@@ -206,6 +168,48 @@
               [spin]="item.spin"
             ></icon>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h3>icon-stack demo</h3>
+<div class="d-flex pb-2">
+  <div class="flex-1">
+    <h4>html code</h4>
+    <code class="block">
+      <span *ngFor="let item of iconStackHtmlCode; let idx = index">
+        <div>
+          <span *ngIf="idx > 0 && idx < iconStackHtmlCode.length - 1">
+            &nbsp;&nbsp;
+          </span>
+          <span>
+            {{item}}
+          </span>
+        </div>
+      </span>
+    </code>
+  </div>
+  <div class="heading">
+    <div class="d-flex">
+      <div class="icon-frame">
+        <div class="icon-container">
+          <div class="icon-bg">
+            <div
+              *ngFor="let cell of bgGrid"
+              [class.accent]="(cell.x + cell.y) % 2 === 0"
+              [style.grid-column]="cell.x"
+              [style.grid-row]="cell.y"
+            ></div>
+          </div>
+          <icon-stack size="10em">
+            <icon
+              type="times"
+              [fill]="['00FF00', 'FF0000', '0000FF']"
+            ></icon>
+            <icon type="ring"></icon>
+          </icon-stack>
         </div>
       </div>
     </div>

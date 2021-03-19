@@ -1,9 +1,8 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 
-// import { iconTypes, icon } from '@joster-dev/icon';
+import { iconTypes, icon } from '@joster-dev/icon';
 import { Item } from '@joster-dev/form-control';
-import { iconTypes, icon } from 'dist/icon';
-
+// import { iconTypes, icon } from 'dist/icon';
 
 @Component({
   selector: 'doc-root',
@@ -46,8 +45,8 @@ export class AppComponent {
   ];
   opacityItems: Item[] = [
     { key: 1, value: '1' },
-    { key: 0.5, value: '0.5' },
-    { key: 0, value: '0' }
+    { key: 0.7, value: '0.7' },
+    { key: 0.4, value: '0.4' }
   ];
 
   constructor() {
