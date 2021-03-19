@@ -48,6 +48,7 @@ input **`spin`** expects `'x' | 'y' | 'z'`
 
 **required** input **`type`** expects `string`
 - for icon selection
+
 ## icon-stack component
 *can contain icons which will appear on top of one another*
 
