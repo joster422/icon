@@ -10,14 +10,12 @@ import { Item } from '@joster-dev/form-control';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  @ViewChild('searchInput') searchInput!: ElementRef;
 
   readonly iconStartText = '<icon';
   readonly iconEndText = '></icon>';
   readonly iconText = '<icon type></icon>';
   readonly iconStackText = '...</icon-stack>';
 
-  bgGrid: { x: number, y: number }[] = [];
   searchTerm: string | null = null;
   typeItems: IconTypeItem[] = iconTypes.map(iconType => ({
     type: iconType,
@@ -29,7 +27,7 @@ export class AppComponent {
     fillRotate: false,
     fillOpacity: 1,
     stroke: [
-      { color: '000000' }
+      { color: 'FFFFFF' }
     ],
     strokeRotate: false,
     spin: null
@@ -49,11 +47,7 @@ export class AppComponent {
     { key: 0.4, value: '0.4' }
   ];
 
-  constructor() {
-    for (let x = 1; x <= 10; x++)
-      for (let y = 1; y <= 10; y++)
-        this.bgGrid.push({ x, y });
-  }
+  constructor() { }
 
   get filteredTypes(): string[] {
     if (this.searchTerm === null) {
@@ -88,7 +82,6 @@ export class AppComponent {
 
   onRefineClicked() {
     this.searchTerm = null;
-    this.searchInput.nativeElement.focus();
   }
 
   mapColors(items: { color: string }[]) {

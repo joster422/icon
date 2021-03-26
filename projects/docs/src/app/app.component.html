@@ -4,7 +4,6 @@
 <h2>icon demos</h2>
 <div class="pt-2">
   <fc-text
-    #searchInput
     [(ngModel)]="searchTerm"
     [maxLength]="100"
     placeholder="Find an icon by name"
@@ -23,8 +22,8 @@
       <icon
         [type]="icon.type"
         size="3em"
-        fillRotate
-        [fill]="['000000', '247000']"
+        [fillOpacity]="0"
+        stroke="FFFFFF"
       ></icon>
     </fc-button>
   </a>
@@ -141,14 +140,6 @@
       <div class="d-flex">
         <div class="icon-frame">
           <div class="icon-container">
-            <div class="icon-bg">
-              <div
-                *ngFor="let cell of bgGrid"
-                [class.accent]="(cell.x + cell.y) % 2 === 0"
-                [style.grid-column]="cell.x"
-                [style.grid-row]="cell.y"
-              ></div>
-            </div>
             <icon
               [type]="item.type"
               [fill]="mapColors(item.fill)"
@@ -175,14 +166,6 @@
     <div class="d-flex">
       <div class="icon-frame">
         <div class="icon-container">
-          <div class="icon-bg">
-            <div
-              *ngFor="let cell of bgGrid"
-              [class.accent]="(cell.x + cell.y) % 2 === 0"
-              [style.grid-column]="cell.x"
-              [style.grid-row]="cell.y"
-            ></div>
-          </div>
           <icon-stack size="10em">
             <icon
               type="times"
