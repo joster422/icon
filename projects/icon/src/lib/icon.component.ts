@@ -13,11 +13,12 @@ export class IconComponent extends SizeDirective {
   get type() {
     return this._type;
   }
-  set type(value: any) {
+  set type(value: icon) {
     if (typeof value === 'string')
-      value = value.toLowerCase();
-    if (iconTypes.includes(value))
-      this._type = value;
+      value = value.toLowerCase().trim() as icon;
+    if (!iconTypes.includes(value))
+      throw new Error(`expected [type] to be: ${iconTypes.join(' | ')}`);
+    this._type = value;
   }
   _type!: icon;
 
@@ -25,85 +26,102 @@ export class IconComponent extends SizeDirective {
   get fill() {
     return this._fill;
   }
-  set fill(value: any) {
-    if (this.hexString.test(value))
+  set fill(value: string | string[] | null) {
+    if (typeof value === 'string')
       value = [value];
-    if (Array.isArray(value) && value.every((item: any) => this.hexString.test(item)))
-      this._fill = value;
+    if (value === null || value === undefined)
+      value = [];
+    if (!Array.isArray(value) || !value.every(item => this.hexString.test(item)))
+      throw new Error('expected [fill] to be: string | string[] | null');
+    this._fill = value;
   }
-  _fill = ['FFFFFF'];
+  _fill: string[] = [];
 
   @Input()
   get fillRotate() {
-    return this._fillRotate ? 90 : 0;
+    return this._fillRotate;
   }
-  set fillRotate(value: any) {
-    if (value === '')
+  set fillRotate(value: boolean) {
+    if (typeof value === 'string' && value === '')
       value = true;
     if (value === null || value === undefined)
       value = false;
-    if (typeof value === 'boolean')
-      this._fillRotate = value;
+    if (typeof value !== 'boolean')
+      throw new Error('expected [fillRotate] to be: boolean');
+    this._fillRotate = value;
   }
   _fillRotate = false;
 
   @Input()
-  get fillOpacity(): number {
+  get fillOpacity() {
     return this._fillOpacity;
   }
   set fillOpacity(value: number) {
+    if (typeof value !== 'number' || value < 0)
+      throw new Error('expected [fillOpacity] to be: number >= 0');
     this._fillOpacity = value;
   }
-  _fillOpacity = 1;
+  _fillOpacity = 0;
 
   @Input()
   get stroke() {
     return this._stroke;
   }
-  set stroke(value: any) {
-    if (this.hexString.test(value))
+  set stroke(value: string | string[] | null) {
+    if (typeof value === 'string')
       value = [value];
-    if (Array.isArray(value) && value.every((item: any) => this.hexString.test(item)))
-      this._stroke = value;
+    if (value === null || value === undefined)
+      value = [];
+    if (!Array.isArray(value) || !value.every(item => this.hexString.test(item)))
+      throw new Error('expected [stroke] to be: string | string[] | null');
+    this._stroke = value;
   }
-  _stroke = ['000000'];
+  _stroke: string[] = [];
 
   @Input()
   get strokeRotate() {
-    return this._strokeRotate ? 90 : 0;
+    return this._strokeRotate;
   }
-  set strokeRotate(value: any) {
-    if (value === '')
+  set strokeRotate(value: boolean) {
+    if (typeof value === 'string' && value === '')
       value = true;
     if (value === null || value === undefined)
       value = false;
-    if (typeof value === 'boolean')
-      this._strokeRotate = value;
+    if (typeof value !== 'boolean')
+      throw new Error('expected [strokeRotate] to be: boolean');
+    this._strokeRotate = value;
   }
   _strokeRotate = false;
 
-  id = `${Math.random().toString(36).substr(2, 9)}`;
-  centerX = 50;
-  centerY = 50;
-  strokeWidth = 5;
-  hexString = /^[0-9A-Fa-f]{6}$/;
-
   @Input()
   spin: 'x' | 'y' | 'z' | null = null;
+
+  id = `${Math.random().toString(36).substr(2, 9)}`;
+  hexString = /^[0-9A-Fa-f]{6}$/;
 
   constructor() {
     super();
   }
 
-  fillGradientOffset(index: number) {
-    if (this.fill.length === 1)
-      return '0';
-    return 100 - (((this.fill.length - 1 - index) / (this.fill.length - 1)) * 100);
+  get strokeAttribute(): string {
+    return this._stroke.length === 0
+      ? 'currentColor'
+      : `url(#stroke-gradient-${this.id})`;
   }
 
-  strokeGradientOffset(index: number) {
-    if (this.stroke.length === 1)
-      return '0';
-    return 100 - (((this.stroke.length - 1 - index) / (this.stroke.length - 1)) * 100);
+  get fillAttribute(): string {
+    return this._fill.length === 0
+      ? 'currentColor'
+      : `url(#fill-gradient-${this.id})`;
+  }
+
+  rotateTransform(value: boolean) {
+    return value ? 90 : 0;
+  }
+
+  gradientOffset(index: number, items: string[]) {
+    if (items.length === 1)
+      return 0;
+    return 100 - (((items.length - 1 - index) / (items.length - 1)) * 100);
   }
 }

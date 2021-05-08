@@ -20,39 +20,46 @@ import the module
 })
 ```
 
-## icon component
-*can be scaled up or down to any resolution with no aliasing*
+### `icon` component
+- for displaying icon
+- **`fill`** input expects `string | string[] | null` defaults to `null`
+  - for body color
+  - when `string[]`
+    - vertical gradient left to right
+  - when `null`
+    - uses [`currentColor`](https://www.w3.org/wiki/CSS3/Color/currentColor)
 
-*can be graphically customized*
+- **`fillRotate`** input expects `boolean` defaults to `false`
+  - for rotate **`fill`** by 90°
+  - useful when **`fill`** is `string[]`
 
-input **`fill`** expects `string | string[]` defaults to `['FFFFFF']`
-- for main colors, arranged left to right
+- **`fillOpacity`** input expects `number` defaults to `0`
+  - for **`fill`** transparency
+  - `1` is solid color
+  - `0` is transparent
 
-input **`fillRotate`** expects `boolean` defaults to `false`
-- for rotate fill by 90°
+- **`stroke`** input expects `string | string[] | null` defaults to `null`
+  - for outline color
+  - when `string[]`
+    - vertical gradient left to right
+  - when `null`
+    - uses [`currentColor`](https://www.w3.org/wiki/CSS3/Color/currentColor)
+- **`strokeRotate`** input expects `boolean` defaults to `false`
+  - for rotate stroke by 90°
 
-input **`fillOpacity`** expects `number` defaults to `1`
-- for fill transparency
+- **`size`** input expects `<length> | <percentage>` defaults to `'100%'`
+  - for scaling width and height
 
-input **`stroke`** expects `string | string[]` defaults to `['000000']`
-- for outline colors, arranged left to right
+- **`spin`** input expects `'x' | 'y' | 'z'`
+  - for linear rotation animation 
 
-input **`strokeRotate`** expects `boolean` defaults to `false`
-- for rotate stroke by 90°
+- **`type`** input expects `string`
+  - for icon selection
 
-input **`size`** expects `<length> | <percentage>` defaults to `'100%'`
-- for scaling width and height
+### `icon-stack` component
+- for containing multiple `icon` which will appear on top of one another
 
-input **`spin`** expects `'x' | 'y' | 'z'`
-- for linear rotation animation 
+<!-- *can horizontally and vertically center contained icons* -->
 
-**required** input **`type`** expects `string`
-- for icon selection
-
-## icon-stack component
-*can contain icons which will appear on top of one another*
-
-*can horizontally and vertically center contained icons*
-
-input **`size`** expects `<length> | <percentage>` defaults to `'100%'`
-- for scaling width and height of all contained icons
+- **`size`** input expects `<length> | <percentage>` defaults to `'100%'`
+  - for scaling width and height of all contained `icon`
