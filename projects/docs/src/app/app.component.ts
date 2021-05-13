@@ -1,8 +1,8 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 
-import { iconTypes, icon } from '@joster-dev/icon';
+// import { iconTypes, icon } from '@joster-dev/icon';
 import { Item } from '@joster-dev/form-control';
-// import { iconTypes, icon } from 'dist/icon';
+import { iconTypes, icon } from 'dist/icon';
 
 @Component({
   selector: 'doc-root',
@@ -24,18 +24,19 @@ export class AppComponent {
       { color: '700024' },
       { color: '002470' },
     ],
-    fillRotate: false,
+    fillRotate: '0',
     fillOpacity: 1,
     stroke: [
       { color: 'FFFFFF' }
     ],
-    strokeRotate: false,
+    strokeRotate: '0',
     spin: null
   }));
   rotateItems: Item[] = [
-    { key: false, value: 'vertical' },
-    { key: true, value: 'horizontal' },
-  ];
+    { key: 0, value: '0' },
+    { key: 45, value: '45' },
+    { key: 90, value: '90' },
+  ]
   spinItems: Item[] = [
     { key: 'x', value: 'x' },
     { key: 'y', value: 'y' },
@@ -46,6 +47,7 @@ export class AppComponent {
     { key: 0.7, value: '0.7' },
     { key: 0.4, value: '0.4' }
   ];
+
 
   constructor() { }
 
@@ -111,9 +113,9 @@ export class AppComponent {
 interface IconTypeItem {
   type: icon;
   fill: { color: string }[];
-  fillRotate: boolean;
+  fillRotate: string;
   fillOpacity: number;
   stroke: { color: string }[];
-  strokeRotate: boolean;
+  strokeRotate: string;
   spin: 'x' | 'y' | null;
 }

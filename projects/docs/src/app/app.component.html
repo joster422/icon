@@ -67,11 +67,20 @@
           >
             fill color {{idx + 1}}
           </fc-color>
+          <fc-color
+            [brRight]="false"
+            [brLeft]="false"
+            title="Clear color, transparent"
+            (clicked)="fill.color = 'clear'"
+          >
+            🆑
+          </fc-color>
           <fc-button
             [brLeft]="false"
+            title="Remove"
             (clicked)="item.fill.splice(idx, 1)"
           >
-            remove
+            ❌
           </fc-button>
         </div>
         <fc-choice

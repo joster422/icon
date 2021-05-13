@@ -26,31 +26,29 @@ export class IconComponent extends SizeDirective {
   get fill() {
     return this._fill;
   }
-  set fill(value: string | string[] | null) {
+  set fill(value: string | null | (string | null)[]) {
     if (typeof value === 'string')
       value = [value];
     if (value === null || value === undefined)
-      value = [];
-    if (!Array.isArray(value) || !value.every(item => this.hexString.test(item)))
-      throw new Error('expected [fill] to be: string | string[] | null');
+      value = [null];
+    if (!Array.isArray(value) || !value.every(item => item === null || typeof item === 'string'))
+      throw new Error('expected [fill] to be: string | null | (string | null)[]');
     this._fill = value;
   }
-  _fill: string[] = [];
+  _fill: (string | null)[] = [null];
 
   @Input()
   get fillRotate() {
     return this._fillRotate;
   }
-  set fillRotate(value: boolean) {
-    if (typeof value === 'string' && value === '')
-      value = true;
-    if (value === null || value === undefined)
-      value = false;
-    if (typeof value !== 'boolean')
-      throw new Error('expected [fillRotate] to be: boolean');
+  set fillRotate(value: string) {
+    if (typeof value === 'number')
+      value = String(value);
+    if (typeof value !== 'string')
+      throw new Error('expected [fillRotate] to be: string');
     this._fillRotate = value;
   }
-  _fillRotate = false;
+  _fillRotate = '0';
 
   @Input()
   get fillOpacity() {
@@ -67,31 +65,29 @@ export class IconComponent extends SizeDirective {
   get stroke() {
     return this._stroke;
   }
-  set stroke(value: string | string[] | null) {
+  set stroke(value: string | null | (string | null)[]) {
     if (typeof value === 'string')
       value = [value];
     if (value === null || value === undefined)
-      value = [];
-    if (!Array.isArray(value) || !value.every(item => this.hexString.test(item)))
-      throw new Error('expected [stroke] to be: string | string[] | null');
+      value = [null];
+    if (!Array.isArray(value) || !value.every(item => item === null || typeof item === 'string'))
+      throw new Error('expected [stroke] to be: string | null | (string | null)[]');
     this._stroke = value;
   }
-  _stroke: string[] = [];
+  _stroke: (string | null)[] = ['current'];
 
   @Input()
   get strokeRotate() {
     return this._strokeRotate;
   }
-  set strokeRotate(value: boolean) {
-    if (typeof value === 'string' && value === '')
-      value = true;
-    if (value === null || value === undefined)
-      value = false;
-    if (typeof value !== 'boolean')
-      throw new Error('expected [strokeRotate] to be: boolean');
+  set strokeRotate(value: string) {
+    if (typeof value === 'number')
+      value = String(value);
+    if (typeof value !== 'string')
+      throw new Error('expected [strokeRotate] to be: string');
     this._strokeRotate = value;
   }
-  _strokeRotate = false;
+  _strokeRotate = '0';
 
   @Input()
   spin: 'x' | 'y' | 'z' | null = null;
@@ -103,25 +99,24 @@ export class IconComponent extends SizeDirective {
     super();
   }
 
-  get strokeAttribute(): string {
-    return this._stroke.length === 0
-      ? 'currentColor'
-      : `url(#stroke-gradient-${this.id})`;
+  linearGradientStopColor(item: string | null) {
+    if (item === 'current')
+      return 'currentColor';
+
+    return item === null
+      ? ''
+      : `#${item}`;
   }
 
-  get fillAttribute(): string {
-    return this._fill.length === 0
-      ? 'currentColor'
-      : `url(#fill-gradient-${this.id})`;
+  linearGradientStopOpacity(item: string | null) {
+    return item === 'clear'
+      ? 0
+      : 1;
   }
 
-  rotateTransform(value: boolean) {
-    return value ? 90 : 0;
-  }
-
-  gradientOffset(index: number, items: string[]) {
+  linearGradientStopOffset(index: number, items: unknown[]) {
     if (items.length === 1)
-      return 0;
-    return 100 - (((items.length - 1 - index) / (items.length - 1)) * 100);
+      return '0%';
+    return `${100 - (((items.length - 1 - index) / (items.length - 1)) * 100)}%`;
   }
 }

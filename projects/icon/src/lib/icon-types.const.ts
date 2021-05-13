@@ -25,5 +25,6 @@ export const iconTypes = [
   'chevron',
   'ankh',
   'sun',
-  'moon'
+  'moon',
+  'clear',
 ] as const;
