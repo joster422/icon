@@ -59,7 +59,7 @@ export class IconComponent extends SizeDirective {
       throw new Error('expected [fillOpacity] to be: number >= 0');
     this._fillOpacity = value;
   }
-  _fillOpacity = 0;
+  _fillOpacity = 1;
 
   @Input()
   get stroke() {
@@ -109,7 +109,7 @@ export class IconComponent extends SizeDirective {
   }
 
   linearGradientStopOpacity(item: string | null) {
-    return item === 'clear'
+    return item === null
       ? 0
       : 1;
   }

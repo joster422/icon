@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 // import { iconTypes, icon } from '@joster-dev/icon';
-import { Item } from '@joster-dev/form-control';
+// import { Item } from '@joster-dev/form-control';
 import { iconTypes, icon } from 'dist/icon';
 
 @Component({
@@ -32,29 +32,28 @@ export class AppComponent {
     strokeRotate: '0',
     spin: null
   }));
-  rotateItems: Item[] = [
+  rotateItems = [
     { key: 0, value: '0' },
     { key: 45, value: '45' },
     { key: 90, value: '90' },
   ]
-  spinItems: Item[] = [
+  spinItems = [
     { key: 'x', value: 'x' },
     { key: 'y', value: 'y' },
     { key: 'z', value: 'z' }
   ];
-  opacityItems: Item[] = [
+  opacityItems = [
     { key: 1, value: '1' },
     { key: 0.7, value: '0.7' },
     { key: 0.4, value: '0.4' }
   ];
 
-
   constructor() { }
 
   get filteredTypes(): string[] {
-    if (this.searchTerm === null) {
+    if (this.searchTerm === null)
       return this.typeItems.map(item => item.type);
-    }
+
     return this.typeItems
       .filter(item => item.type.toLowerCase().includes(this.searchTerm!.toLowerCase()))
       .map(item => item.type);

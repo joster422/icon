@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 import { MarkdownModule } from 'ngx-markdown';
 
-import { FormControlModule } from '@joster-dev/form-control';
+// import { FormControlModule } from '@joster-dev/form-control';
 // import { IconModule } from '@joster-dev/icon';
 import { IconModule } from 'dist/icon';
 
@@ -18,7 +18,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     FormsModule,
-    FormControlModule,
+    // FormControlModule,
     IconModule,
     HttpClientModule,
     MarkdownModule.forRoot({ loader: HttpClient })
