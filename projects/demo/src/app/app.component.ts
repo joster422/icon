@@ -1,16 +1,13 @@
 import { Component } from '@angular/core';
 
-// import { iconTypes, icon } from '@joster-dev/icon';
-// import { Item } from '@joster-dev/form-control';
 import { iconTypes, icon } from 'dist/icon';
 
 @Component({
-  selector: 'doc-root',
+  selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-
   readonly iconStartText = '<icon';
   readonly iconEndText = '></icon>';
   readonly iconText = '<icon type></icon>';
